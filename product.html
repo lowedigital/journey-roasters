@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journey Roast — Journey Roasters</title>
+<meta name="description" content="Journey Roast: a dark roast, single-origin Brazilian coffee with notes of chocolate, caramel, and roasted almond. Freshly roasted in small batches.">
+
+<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="favicons/favicon.svg">
+<link rel="shortcut icon" href="favicons/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="manifest" href="favicons/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --black:#0F0F0F; --white:#FFFFFF; --gold:#C7A25A; --gold-soft:#DCC493;
+    --cream:#F6F3EE; --text:#222222; --text-muted:#6B6B63;
+    --line:rgba(15,15,15,0.08); --line-on-dark:rgba(255,255,255,0.14);
+    --container:1280px; --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+  body{ margin:0; background:var(--white); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:300; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,h4{ font-family:'Cormorant Garamond',serif; font-weight:500; margin:0; letter-spacing:0.01em; }
+  p{ margin:0; }
+  ul{ margin:0; padding:0; list-style:none; }
+  button{ font-family:inherit; cursor:pointer; }
+  .container{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+  @media(max-width:640px){ .container{ padding:0 20px; } }
+  .eyebrow{ font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:500; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 28px; font-size:12.5px; letter-spacing:0.13em; text-transform:uppercase; font-weight:500; border-radius:2px; border:1px solid transparent; transition:all .35s var(--ease); white-space:nowrap; }
+  .btn-primary{ background:var(--gold); color:var(--black); }
+  .btn-primary:hover{ background:var(--gold-soft); transform:translateY(-1px); }
+  .btn-outline-dark{ border-color:rgba(255,255,255,0.55); color:var(--white); }
+  .btn-outline-dark:hover{ border-color:var(--white); background:rgba(255,255,255,0.06); }
+  .btn-outline-light{ border-color:var(--black); color:var(--black); }
+  .btn-outline-light:hover{ background:var(--black); color:var(--white); }
+  .btn-block{ width:100%; }
+  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  /* Nav (shared) */
+  .site-nav{ position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:13px 40px; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); box-shadow:0 1px 0 var(--line); }
+  @media(max-width:640px){ .site-nav{ padding:14px 20px; } }
+  .brand{ font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:0.14em; text-transform:uppercase; color:var(--black); }
+  .nav-links{ display:flex; gap:44px; align-items:center; }
+  .nav-links a{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); font-weight:400; position:relative; padding-bottom:4px; }
+  .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .35s var(--ease); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-right{ display:flex; align-items:center; gap:22px; }
+  .nav-shop-btn{ padding:11px 24px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; background:var(--gold); border:1px solid var(--gold); color:var(--black); border-radius:2px; transition:all .35s var(--ease); }
+  .nav-shop-btn:hover{ background:var(--gold-soft); border-color:var(--gold-soft); transform:translateY(-1px); }
+  .nav-toggle{ display:none; background:none; border:0; width:26px; height:20px; position:relative; }
+  .nav-toggle span{ position:absolute; left:0; right:0; height:1px; background:var(--black); transition:all .3s var(--ease); }
+  .nav-toggle span:nth-child(1){ top:0; } .nav-toggle span:nth-child(2){ top:9px; } .nav-toggle span:nth-child(3){ top:18px; }
+  .nav-toggle.is-open span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-open span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+  .mobile-nav{ position:fixed; inset:0; background:var(--black); z-index:99; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; opacity:0; visibility:hidden; transition:opacity .4s var(--ease); }
+  .mobile-nav.is-open{ opacity:1; visibility:visible; }
+  .mobile-nav a{ font-family:'Cormorant Garamond',serif; font-size:30px; color:var(--cream); }
+  @media(max-width:900px){ .nav-links{ display:none; } .nav-shop-btn{ display:none; } .nav-toggle{ display:block; } }
+
+  /* Breadcrumb */
+  .breadcrumb{ padding:96px 0 0; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); }
+  .breadcrumb a{ color:var(--text-muted); transition:color .3s var(--ease); }
+  .breadcrumb a:hover{ color:var(--black); }
+  .breadcrumb span{ margin:0 8px; color:var(--line); }
+
+  /* Product layout */
+  .product-layout{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; padding:22px 0 70px; align-items:start; }
+  @media(max-width:940px){ .product-layout{ grid-template-columns:1fr; gap:36px; padding-bottom:48px; } }
+
+  .gallery-main{ background:linear-gradient(160deg,#f8f6f1,#eee7d7); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; padding:36px; position:relative; }
+  .gallery-main svg{ width:70%; }
+  .gallery-thumbs{ display:flex; gap:10px; margin-top:10px; }
+  .gallery-thumb{ width:68px; height:68px; border:1px solid var(--line); background:var(--cream); cursor:pointer; padding:10px; transition:border-color .3s var(--ease); }
+  .gallery-thumb.is-active{ border-color:var(--gold); }
+  .gallery-thumb svg{ width:100%; opacity:0.85; }
+
+  .purchase-panel{ position:relative; }
+  .purchase-panel .eyebrow{ display:block; margin-bottom:8px; }
+  .purchase-panel h1{ font-size:clamp(30px,3.4vw,42px); line-height:1.06; }
+  .product-meta-row{ display:flex; gap:8px; align-items:center; margin-top:12px; flex-wrap:wrap; }
+  .tag{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--line); padding:6px 12px; border-radius:20px; }
+  .product-desc{ margin-top:14px; color:var(--text-muted); font-size:15px; line-height:1.7; max-width:52ch; }
+  .notes-row{ display:flex; gap:18px; margin-top:16px; flex-wrap:wrap; }
+  .note-chip{ display:flex; align-items:center; gap:9px; font-size:13px; color:var(--text); }
+  .note-dot{ width:8px; height:8px; border-radius:50%; background:var(--gold); }
+
+  .detail-list{ margin-top:20px; border-top:1px solid var(--line); }
+  .detail-row{ display:flex; justify-content:space-between; gap:20px; padding:11px 0; border-bottom:1px solid var(--line); font-size:13.5px; }
+  .detail-row dt{ color:var(--text-muted); }
+  .detail-row dd{ margin:0; text-align:right; font-weight:400; }
+
+  .freshness-note{ display:flex; gap:10px; align-items:flex-start; margin-top:16px; padding:13px 16px; background:var(--cream); border-radius:2px; }
+  .freshness-note svg{ width:20px; height:20px; color:var(--gold); flex-shrink:0; margin-top:2px; }
+  .freshness-note p{ font-size:13.5px; color:var(--text-muted); line-height:1.65; }
+  .freshness-note strong{ color:var(--text); font-weight:500; }
+
+  .size-select{ margin-top:22px; }
+  .field-label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; display:block; }
+  .size-options{ display:flex; gap:10px; }
+  .size-option{ flex:1; border:1px solid var(--line); padding:12px; text-align:center; background:var(--white); transition:all .3s var(--ease); }
+  .size-option:hover{ border-color:var(--gold); }
+  .size-option.is-active{ border-color:var(--gold); background:var(--cream); }
+  .size-option .size-label{ font-size:14px; font-weight:400; }
+  .size-option .size-price{ font-family:'Cormorant Garamond',serif; font-size:20px; margin-top:4px; }
+
+  .qty-row{ display:flex; align-items:center; gap:18px; margin-top:20px; flex-wrap:wrap; }
+  .qty-stepper{ display:flex; align-items:center; border:1px solid var(--line); }
+  .qty-stepper button{ width:36px; height:38px; background:none; border:0; font-size:15px; color:var(--text); transition:background .3s var(--ease); }
+  .qty-stepper button:hover{ background:var(--cream); }
+  .qty-stepper span{ width:40px; text-align:center; font-size:14px; }
+  .total-price{ font-family:'Cormorant Garamond',serif; font-size:24px; }
+
+  .purchase-cta{ margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+  .purchase-secure{ display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--text-muted); margin-top:6px; letter-spacing:0.02em; }
+  .purchase-secure svg{ width:14px; height:14px; color:var(--gold); }
+
+  /* Sticky purchase bar */
+  .sticky-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:90;
+    background:rgba(255,255,255,0.97); backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:13px 40px; gap:18px;
+    transform:translateY(110%); transition:transform .4s var(--ease);
+  }
+  .sticky-bar.is-shown{ transform:translateY(0); }
+  .sticky-bar-info{ display:flex; align-items:center; gap:16px; }
+  .sticky-bar-info svg{ width:34px; height:34px; }
+  .sticky-bar-name{ font-family:'Cormorant Garamond',serif; font-size:18px; }
+  .sticky-bar-meta{ font-size:12px; color:var(--text-muted); }
+  .sticky-bar-actions{ display:flex; align-items:center; gap:16px; }
+  .sticky-bar-price{ font-family:'Cormorant Garamond',serif; font-size:19px; }
+  @media(max-width:640px){ .sticky-bar{ padding:14px 20px; } .sticky-bar-meta{ display:none; } }
+
+  /* Extra info sections */
+  section.info-section{ padding:60px 0; border-top:1px solid var(--line); }
+  .info-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
+  @media(max-width:800px){ .info-grid{ grid-template-columns:1fr; gap:28px; } }
+  .info-item h3{ font-size:19px; }
+  .info-item p{ margin-top:8px; color:var(--text-muted); font-size:14px; line-height:1.7; }
+  .info-icon{ width:28px; height:28px; color:var(--gold); margin-bottom:12px; }
+
+  /* Footer (shared) */
+  .site-footer{ background:var(--black); color:rgba(255,255,255,0.6); padding:52px 0 26px; }
+  .footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:28px; padding-bottom:32px; border-bottom:1px solid var(--line-on-dark); }
+  .footer-brand{ font-family:'Cormorant Garamond',serif; font-size:22px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); }
+  .footer-tagline{ margin-top:12px; font-size:14px; color:rgba(255,255,255,0.4); max-width:28ch; }
+  .footer-cols{ display:flex; gap:46px; flex-wrap:wrap; }
+  .footer-col h4{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:500; margin-bottom:12px; }
+  .footer-col a{ display:block; font-size:13.5px; color:rgba(255,255,255,0.55); margin-top:8px; transition:color .3s var(--ease); }
+  .footer-col a:hover{ color:var(--gold-soft); }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:18px; flex-wrap:wrap; gap:14px; font-size:12px; color:rgba(255,255,255,0.35); }
+  .social-icon{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--line-on-dark); border-radius:50%; transition:border-color .3s var(--ease), color .3s var(--ease); color:rgba(255,255,255,0.7); }
+  .social-icon:hover{ border-color:var(--gold); color:var(--gold); }
+  .social-icon svg{ width:16px; height:16px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="brand">Journey Roasters</a>
+  <div class="nav-links">
+    <a href="shop.html">Shop</a>
+    <a href="index.html#story">Our Story</a>
+    <a href="index.html#reviews">Reviews</a>
+  </div>
+  <div class="nav-right">
+    <a href="#mainPurchaseCta" class="nav-shop-btn">Buy Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="shop.html">Shop</a>
+  <a href="index.html#story">Our Story</a>
+  <a href="index.html#reviews">Reviews</a>
+  <a href="#mainPurchaseCta" class="btn btn-primary">Buy Now</a>
+</div>
+
+<div class="container">
+  <p class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="shop.html">Shop</a><span>/</span>Journey Roast</p>
+
+  <div class="product-layout">
+    <div class="reveal">
+      <div class="gallery-main" id="galleryMain">
+        <svg viewBox="0 0 300 400" role="img" aria-label="Journey Roast black matte coffee bag with gold label"><use href="#bag-illustration"></use></svg>
+      </div>
+      <div class="gallery-thumbs">
+        <button class="gallery-thumb is-active" aria-label="Show full bag view" data-view="bag">
+          <svg viewBox="0 0 300 400"><use href="#bag-illustration"></use></svg>
+        </button>
+        <button class="gallery-thumb" aria-label="Show label detail view" data-view="label">
+          <svg viewBox="0 0 120 120" fill="none" stroke="#C7A25A" stroke-width="1.5"><rect x="10" y="30" width="100" height="60" rx="3" fill="#F6F3EE" stroke="#C7A25A"/><line x1="24" y1="46" x2="96" y2="46"/><line x1="24" y1="74" x2="96" y2="74"/></svg>
+        </button>
+        <button class="gallery-thumb" aria-label="Show lifestyle view" data-view="lifestyle">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#C7A25A" stroke-width="1.2"><circle cx="32" cy="32" r="22"/><path d="M32 20 v14 l10 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="purchase-panel reveal">
+      <span class="eyebrow">Single Origin · Brazil</span>
+      <h1>Journey Roast</h1>
+      <div class="product-meta-row">
+        <span class="tag">Brazil</span>
+        <span class="tag">Dark Roast</span>
+        <span class="tag">Whole Bean</span>
+      </div>
+      <p class="product-desc">Deep, rich, and remarkably smooth. Our flagship roast is built for daily ritual — bold enough to wake you up, balanced enough to enjoy slowly. Packaged in a black matte bag with a minimalist gold and white label, made to look as good on your counter as it tastes in your cup.</p>
+
+      <div class="notes-row">
+        <div class="note-chip"><span class="note-dot"></span>Chocolate</div>
+        <div class="note-chip"><span class="note-dot"></span>Caramel</div>
+        <div class="note-chip"><span class="note-dot"></span>Roasted Almond</div>
+      </div>
+
+      <dl class="detail-list">
+        <div class="detail-row"><dt>Origin</dt><dd>Brazil</dd></div>
+        <div class="detail-row"><dt>Roast Level</dt><dd>Dark</dd></div>
+        <div class="detail-row"><dt>Processing Method</dt><dd>Natural Process</dd></div>
+        <div class="detail-row"><dt>Format</dt><dd>Whole Bean</dd></div>
+      </dl>
+
+      <div class="freshness-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 L14 9 L21 9 L15.5 13 L17.5 20 L12 16 L6.5 20 L8.5 13 L3 9 L10 9 Z"/></svg>
+        <p><strong>Freshness Guarantee.</strong> Every bag is roasted to order and shipped within 48 hours of roasting. If it's not fresh, we'll replace it — no questions asked.</p>
+      </div>
+
+      <div class="size-select">
+        <span class="field-label">Size</span>
+        <div class="size-options" id="sizeOptions">
+          <button class="size-option is-active" data-size="8oz" data-price="12">
+            <div class="size-label">8 oz</div>
+            <div class="size-price">$12</div>
+          </button>
+          <button class="size-option" data-size="1lb" data-price="18.5">
+            <div class="size-label">1 lb</div>
+            <div class="size-price">$18.50</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="qty-row">
+        <div>
+          <span class="field-label">Quantity</span>
+          <div class="qty-stepper">
+            <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+            <span id="qtyValue">1</span>
+            <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <div>
+          <span class="field-label">Total</span>
+          <div class="total-price" id="totalPrice">$12</div>
+        </div>
+      </div>
+
+      <div class="purchase-cta" id="mainPurchaseCta">
+        <button class="btn btn-primary btn-block" id="addToCartBtn">Buy Now</button>
+        <div class="purchase-secure">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10 V7 a4 4 0 0 1 8 0 v3"/></svg>
+          Secure checkout via Stripe · Free shipping over $40
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reusable bag illustration -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bag-illustration" viewBox="0 0 300 400">
+      <ellipse cx="150" cy="382" rx="92" ry="12" fill="#000" opacity="0.18"/>
+      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="#141414"/>
+      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="url(#bagSheen)" opacity="0.5"/>
+      <path d="M70 96 Q150 84 230 96 L238 128 Q150 116 62 128 Z" fill="#0b0b0b"/>
+      <rect x="118" y="70" width="64" height="34" rx="6" fill="#0b0b0b"/>
+      <rect x="118" y="70" width="64" height="10" rx="5" fill="#1c1c1c"/>
+      <circle cx="150" cy="130" r="7" fill="none" stroke="#C7A25A" stroke-width="2" opacity="0.8"/>
+      <rect x="98" y="172" width="104" height="118" rx="3" fill="#F6F3EE"/>
+      <rect x="98" y="172" width="104" height="118" rx="3" fill="none" stroke="#C7A25A" stroke-width="1.5"/>
+      <line x1="112" y1="196" x2="188" y2="196" stroke="#C7A25A" stroke-width="1"/>
+      <text x="150" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="1.8" fill="#222222">JOURNEY ROASTERS</text>
+      <text x="150" y="248" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="21" font-style="italic" fill="#141414">Journey Roast</text>
+      <text x="150" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" letter-spacing="1.4" fill="#8a8a80">BRAZIL · DARK ROAST</text>
+      <line x1="112" y1="276" x2="188" y2="276" stroke="#C7A25A" stroke-width="1"/>
+      <line x1="78" y1="150" x2="78" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+      <line x1="222" y1="150" x2="222" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+      <defs>
+        <linearGradient id="bagSheen" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/>
+          <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ MORE ON THIS ROAST ============ -->
+<section class="info-section">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item reveal">
+        <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M24 6c6 8-4 10-2 18a10 10 0 1 0 14-2c1 8-6 12-6 12"/></svg>
+        <h3>Roasted to Order</h3>
+        <p>We roast in small batches and ship within 48 hours, so what arrives is always close to peak freshness.</p>
+      </div>
+      <div class="info-item reveal">
+        <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="20" r="14"/><path d="M24 34 L24 44 M17 44 L31 44"/><circle cx="24" cy="20" r="4"/></svg>
+        <h3>One Origin, Every Bag</h3>
+        <p>Sourced from a single farming region in Brazil, chosen for its consistency across every harvest.</p>
+      </div>
+      <div class="info-item reveal">
+        <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 10 h20 l-4 14 a8 8 0 0 1-6 6h-0 a8 8 0 0 1-6-6z"/><path d="M20 38 h8 M24 30 v8"/></svg>
+        <h3>Brews Beautifully Anywhere</h3>
+        <p>Balanced for pour over, French press, or drip — see our <a href="index.html#brewing" style="border-bottom:1px solid #C7A25A;">brewing guide</a> for our favorite methods.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STICKY PURCHASE BAR ============ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-info">
+    <svg viewBox="0 0 300 400"><use href="#bag-illustration"></use></svg>
+    <div>
+      <div class="sticky-bar-name">Journey Roast</div>
+      <div class="sticky-bar-meta" id="stickyBarMeta">8 oz · Dark Roast</div>
+    </div>
+  </div>
+  <div class="sticky-bar-actions">
+    <span class="sticky-bar-price" id="stickyBarPrice">$12</span>
+    <button class="btn btn-primary" id="stickyAddToCart">Buy Now</button>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Journey Roasters</div>
+        <p class="footer-tagline">Coffee for the road ahead.</p>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Journey Roasters on Instagram" style="margin-top:22px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="shop.html">All Coffee</a>
+          <a href="product.html">Journey Roast</a>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <a href="index.html#story">Our Story</a>
+          <a href="index.html#brewing">Brewing</a>
+          <a href="index.html#reviews">Reviews</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@journeyroasters.com">hello@journeyroasters.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="footerYear">© 2026 Journey Roasters. All rights reserved.</span>
+      <span>Roasted in small batches, always.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('is-open');
+    navToggle.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded','false');
+  }));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+    });
+  }, { threshold:0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Gallery thumbs (visual state only — swap in real photos per view later)
+  document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+    });
+  });
+
+  // ------------------------------------------------------------------
+  // Size / quantity / price state
+  // ------------------------------------------------------------------
+  let selectedSize = '8oz';
+  let selectedPrice = 12;
+  let quantity = 1;
+
+  const sizeOptions = document.querySelectorAll('.size-option');
+  const qtyValueEl = document.getElementById('qtyValue');
+  const totalPriceEl = document.getElementById('totalPrice');
+  const stickyBarMeta = document.getElementById('stickyBarMeta');
+  const stickyBarPrice = document.getElementById('stickyBarPrice');
+
+  function formatPrice(n){
+    return n % 1 === 0 ? `$${n}` : `$${n.toFixed(2)}`;
+  }
+
+  function updateTotals(){
+    const total = selectedPrice * quantity;
+    totalPriceEl.textContent = formatPrice(total);
+    stickyBarPrice.textContent = formatPrice(total);
+    const sizeLabel = selectedSize === '8oz' ? '8 oz' : '1 lb';
+    stickyBarMeta.textContent = `${sizeLabel} · Dark Roast${quantity > 1 ? ' · Qty ' + quantity : ''}`;
+  }
+
+  sizeOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+      sizeOptions.forEach(o => o.classList.remove('is-active'));
+      opt.classList.add('is-active');
+      selectedSize = opt.getAttribute('data-size');
+      selectedPrice = Number(opt.getAttribute('data-price'));
+      updateTotals();
+    });
+  });
+
+  document.getElementById('qtyMinus').addEventListener('click', () => {
+    quantity = Math.max(1, quantity - 1);
+    qtyValueEl.textContent = quantity;
+    updateTotals();
+  });
+  document.getElementById('qtyPlus').addEventListener('click', () => {
+    quantity = Math.min(20, quantity + 1);
+    qtyValueEl.textContent = quantity;
+    updateTotals();
+  });
+
+  // ==================================================================
+  // STRIPE PAYMENT LINKS — replace these with your real Stripe links.
+  // Create Payment Links in your Stripe Dashboard → Payment Links,
+  // then paste each size's URL below. Buy Now sends customers
+  // straight to the matching Stripe checkout page.
+  // ==================================================================
+  const STRIPE_LINKS = {
+    '8oz': 'https://buy.stripe.com/dRm5kE4tvfWg7jcesWfMA04',
+    '1lb': 'https://buy.stripe.com/8x27sM0df8tO6f85WqfMA05'
+  };
+  function goToCheckout(){
+    window.location.href = STRIPE_LINKS[selectedSize] || STRIPE_LINKS['8oz'];
+  }
+  document.getElementById('addToCartBtn').addEventListener('click', goToCheckout);
+  document.getElementById('stickyAddToCart').addEventListener('click', goToCheckout);
+
+  // ------------------------------------------------------------------
+  // Sticky purchase bar — shows once the main Buy Now button
+  // scrolls out of view.
+  // ------------------------------------------------------------------
+  const stickyBar = document.getElementById('stickyBar');
+  const mainCta = document.getElementById('mainPurchaseCta');
+  const stickyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      stickyBar.classList.toggle('is-shown', !entry.isIntersecting && entry.boundingClientRect.top < 0);
+    });
+  }, { threshold:0 });
+  stickyObserver.observe(mainCta);
+
+  // Footer year
+  document.getElementById('footerYear').textContent = `© ${new Date().getFullYear()} Journey Roasters. All rights reserved.`;
+</script>
+</body>
+</html>
