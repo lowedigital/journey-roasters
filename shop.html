@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop — Journey Roasters</title>
-<meta name="description" content="Shop Journey Roasters coffee. Journey Roast — a dark roast, single-origin Brazilian coffee with notes of chocolate, caramel, and roasted almond.">
+<meta name="description" content="Shop Journey Roasters coffee — Journey Roast, a dark roast from Brazil, and First Light, a medium roast from Colombia. Freshly roasted in small batches.">
 
 <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="favicons/favicon.svg">
@@ -55,7 +55,7 @@
   @media(max-width:640px){ .site-nav{ padding:14px 20px; } }
   .brand{ font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:0.14em; text-transform:uppercase; color:var(--black); }
   .nav-links{ display:flex; gap:44px; align-items:center; }
-  .nav-links a{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); font-weight:400; position:relative; padding-bottom:4px; }
+  .nav-links a{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:400; position:relative; padding-bottom:4px; }
   .nav-links a.is-current{ color:var(--gold); }
   .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .35s var(--ease); }
   .nav-links a:hover::after{ width:100%; }
@@ -136,7 +136,7 @@
     <a href="index.html#reviews">Reviews</a>
   </div>
   <div class="nav-right">
-    <a href="product.html" class="nav-shop-btn">Buy Now</a>
+    <a href="#catalog" class="nav-shop-btn">Buy Now</a>
   </div>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
     <span></span><span></span><span></span>
@@ -147,7 +147,7 @@
   <a href="shop.html">Shop</a>
   <a href="index.html#story">Our Story</a>
   <a href="index.html#reviews">Reviews</a>
-  <a href="product.html" class="btn btn-primary">Buy Now</a>
+  <a href="#catalog" class="btn btn-primary">Buy Now</a>
 </div>
 
 <div class="container">
@@ -155,11 +155,11 @@
 
   <div class="shop-head reveal">
     <span class="eyebrow">Shop</span>
-    <h1>Our Coffee</h1>
-    <p>One roast, done right. Small batches, single origin, always fresh — with more on the way.</p>
+    <h1>Our Coffees</h1>
+    <p>Two roasts, each crafted with intention. Small batches, thoughtfully sourced, always fresh.</p>
   </div>
 
-  <div class="catalog-grid">
+  <div class="catalog-grid" id="catalog">
     <!-- Journey Roast -->
     <a href="product.html" class="catalog-card reveal" style="text-decoration:none;color:inherit;">
       <div class="catalog-media">
@@ -184,7 +184,31 @@
       </div>
     </a>
 
-    <!-- To add another roast, duplicate the .catalog-card block above and update its details. -->
+    <!-- First Light -->
+    <a href="first-light.html" class="catalog-card reveal" style="text-decoration:none;color:inherit;">
+      <div class="catalog-media">
+        <svg viewBox="0 0 300 400" role="img" aria-label="First Light black matte coffee bag with gold label"><use href="#bag-illustration-first-light"></use></svg>
+      </div>
+      <div class="catalog-body">
+        <span class="eyebrow">Single Origin</span>
+        <div class="catalog-tags">
+          <span class="tag">Colombia</span>
+          <span class="tag">Medium Roast</span>
+        </div>
+        <h3>First Light</h3>
+        <div class="catalog-notes">
+          <div class="note-chip"><span class="note-dot"></span>Milk Chocolate</div>
+          <div class="note-chip"><span class="note-dot"></span>Caramel</div>
+          <div class="note-chip"><span class="note-dot"></span>Subtle Citrus</div>
+        </div>
+        <div class="catalog-footer">
+          <div class="catalog-price">$12<span>/ 8 oz</span></div>
+          <span class="catalog-link">View Product →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- To add another roast, duplicate a .catalog-card block above and update its details. -->
     <div class="catalog-card is-soon reveal" aria-hidden="true">
       <div class="catalog-media">
         <svg viewBox="0 0 64 64" fill="none" stroke="#C7A25A" stroke-width="1"><circle cx="32" cy="32" r="20"/><path d="M24 32 h16 M32 24 v16"/></svg>
@@ -226,6 +250,31 @@
         </linearGradient>
       </defs>
     </symbol>
+    <symbol id="bag-illustration-first-light" viewBox="0 0 300 400">
+      <ellipse cx="150" cy="382" rx="92" ry="12" fill="#000" opacity="0.18"/>
+      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="#141414"/>
+      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="url(#bagSheenFL)" opacity="0.5"/>
+      <path d="M70 96 Q150 84 230 96 L238 128 Q150 116 62 128 Z" fill="#0b0b0b"/>
+      <rect x="118" y="70" width="64" height="34" rx="6" fill="#0b0b0b"/>
+      <rect x="118" y="70" width="64" height="10" rx="5" fill="#1c1c1c"/>
+      <circle cx="150" cy="130" r="7" fill="none" stroke="#C7A25A" stroke-width="2" opacity="0.8"/>
+      <rect x="98" y="172" width="104" height="118" rx="3" fill="#F6F3EE"/>
+      <rect x="98" y="172" width="104" height="118" rx="3" fill="none" stroke="#C7A25A" stroke-width="1.5"/>
+      <line x1="112" y1="196" x2="188" y2="196" stroke="#C7A25A" stroke-width="1"/>
+      <text x="150" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="1.8" fill="#222222">JOURNEY ROASTERS</text>
+      <text x="150" y="248" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="21" font-style="italic" fill="#141414">First Light</text>
+      <text x="150" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" letter-spacing="1.4" fill="#8a8a80">COLOMBIA · MEDIUM ROAST</text>
+      <line x1="112" y1="276" x2="188" y2="276" stroke="#C7A25A" stroke-width="1"/>
+      <line x1="78" y1="150" x2="78" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+      <line x1="222" y1="150" x2="222" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+      <defs>
+        <linearGradient id="bagSheenFL" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/>
+          <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </symbol>
   </defs>
 </svg>
 
@@ -245,6 +294,7 @@
           <h4>Shop</h4>
           <a href="shop.html">All Coffee</a>
           <a href="product.html">Journey Roast</a>
+          <a href="first-light.html">First Light</a>
         </div>
         <div class="footer-col">
           <h4>Learn</h4>
@@ -254,7 +304,7 @@
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="mailto:hello@journeyroasters.com">hello@journeyroasters.com</a>
+          <a href="mailto:clowe2605@gmail.com">clowe2605@gmail.com</a>
         </div>
       </div>
     </div>
