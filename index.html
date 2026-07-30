@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Journey Roasters — Coffee for the Road Ahead</title>
-<meta name="description" content="Journey Roasters crafts small-batch, single-origin Brazilian specialty coffee. Freshly roasted, intentionally made — coffee for the road ahead.">
+<meta name="description" content="Journey Roasters crafts small-batch specialty coffee from selected origins — including Journey Roast (Brazil) and First Light (Colombia). Freshly roasted, intentionally made.">
 
 <!-- Favicons (realfavicongenerator.net output) -->
 <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
@@ -139,11 +139,11 @@
   .nav-links{ display:flex; gap:44px; align-items:center; }
   .nav-links a{
     font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
-    color:rgba(255,255,255,0.85); font-weight:400;
+    color:rgba(255,255,255,0.62); font-weight:400;
     position:relative; padding-bottom:4px;
     transition:color .4s var(--ease);
   }
-  .site-nav.is-scrolled .nav-links a{ color:var(--text); }
+  .site-nav.is-scrolled .nav-links a{ color:var(--text-muted); }
   .nav-links a::after{
     content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
     background:var(--gold); transition:width .35s var(--ease);
@@ -223,14 +223,6 @@
     opacity:0; animation:heroIn .9s var(--ease) .64s forwards;
     display:flex; gap:14px; margin-top:28px; flex-wrap:wrap; justify-content:center;
   }
-  .hero-secondary-link{
-    opacity:0; animation:heroIn .9s var(--ease) .78s forwards;
-    display:inline-block; margin-top:14px; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
-    color:rgba(255,255,255,0.6); border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:3px;
-    transition:color .3s var(--ease), border-color .3s var(--ease);
-  }
-  .hero-secondary-link:hover{ color:var(--gold-soft); border-color:var(--gold-soft); }
-
   @keyframes heroIn{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:translateY(0); } }
 
   .scroll-cue{
@@ -280,38 +272,39 @@
   .split-copy p{ margin-top:14px; color:var(--text-muted); font-size:15px; line-height:1.75; }
   .split-copy p + p{ margin-top:10px; }
 
-  /* Featured coffee */
-  .product-card{
-    display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:center;
-    background:var(--white); border:1px solid var(--line); padding:40px;
-    border-radius:2px;
+  /* Our Coffees */
+  .coffee-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+  @media(max-width:800px){ .coffee-grid{ grid-template-columns:1fr; } }
+  .coffee-card{
+    display:flex; flex-direction:column; background:var(--white); border:1px solid var(--line); border-radius:2px;
+    overflow:hidden; transition:border-color .3s var(--ease), transform .3s var(--ease);
   }
-  @media(max-width:900px){ .product-card{ grid-template-columns:1fr; gap:32px; padding:24px; } }
-  .bag-frame{
+  .coffee-card:hover{ border-color:var(--gold); transform:translateY(-3px); }
+  .coffee-media{
     background:linear-gradient(160deg,#f8f6f1,#eee7d7);
-    display:flex; align-items:center; justify-content:center; padding:26px;
-    aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center; padding:24px;
+    aspect-ratio:3/2;
   }
-  .bag-frame svg{ width:78%; }
+  .coffee-media svg{ width:42%; }
+  .coffee-body{ padding:26px 28px 28px; }
+  .coffee-body h3{ font-size:24px; margin-top:6px; }
+  .coffee-desc{ margin-top:10px; color:var(--text-muted); font-size:14.5px; line-height:1.65; }
 
   .product-meta-row{ display:flex; gap:8px; align-items:center; margin-top:10px; flex-wrap:wrap; }
   .tag{
     font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
     color:var(--text-muted); border:1px solid var(--line); padding:6px 12px; border-radius:20px;
   }
-  .product-card h2{ font-size:clamp(28px,3vw,36px); margin-top:4px; }
-  .product-desc{ margin-top:12px; color:var(--text-muted); font-size:15px; line-height:1.7; max-width:52ch; }
 
   .notes-row{ display:flex; gap:20px; margin-top:18px; flex-wrap:wrap; }
   .note-chip{ display:flex; align-items:center; gap:9px; font-size:13px; letter-spacing:0.02em; color:var(--text); }
   .note-dot{ width:8px; height:8px; border-radius:50%; background:var(--gold); }
 
-  .price-row{ display:flex; align-items:baseline; gap:8px; margin-top:20px; }
-  .price-row .amount{ font-family:'Cormorant Garamond',serif; font-size:26px; }
-  .price-row .unit{ font-size:12px; color:var(--text-muted); letter-spacing:0.06em; text-transform:uppercase; }
-
-  .buy-row{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; }
-  .view-link{ margin-top:14px; display:inline-flex; align-items:center; gap:8px; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--black); border-bottom:1px solid var(--gold); padding-bottom:3px; transition:opacity .3s var(--ease); }
+  .coffee-footer{ display:flex; align-items:center; justify-content:space-between; margin-top:20px; }
+  .coffee-price{ font-family:'Cormorant Garamond',serif; font-size:22px; }
+  .coffee-price span{ font-family:'Inter',sans-serif; font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-left:4px; }
+  .coffee-footer .view-link{ margin-top:0; }
+  .view-link{ display:inline-flex; align-items:center; gap:8px; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--black); border-bottom:1px solid var(--gold); padding-bottom:3px; transition:opacity .3s var(--ease); }
   .view-link:hover{ opacity:0.6; }
 
   /* Why columns */
@@ -402,7 +395,7 @@
     <a href="#reviews">Reviews</a>
   </div>
   <div class="nav-right">
-    <a href="product.html" class="nav-shop-btn">Buy Now</a>
+    <a href="shop.html" class="nav-shop-btn">Buy Now</a>
   </div>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
     <span></span><span></span><span></span>
@@ -413,17 +406,16 @@
   <a href="shop.html">Shop</a>
   <a href="#story">Our Story</a>
   <a href="#reviews">Reviews</a>
-  <a href="product.html" class="btn btn-primary">Buy Now</a>
+  <a href="shop.html" class="btn btn-primary">Buy Now</a>
 </div>
 
 <header class="hero" id="top">
-  <span class="eyebrow hero-eyebrow">Specialty Coffee · Brazil</span>
+  <span class="eyebrow hero-eyebrow">Specialty Coffee · Small Batch</span>
   <h1>Coffee for the <em>Road Ahead.</em></h1>
-  <p class="sub">Freshly roasted Brazilian specialty coffee, crafted in small batches for every stage of the journey.</p>
+  <p class="sub">Freshly roasted specialty coffee, crafted in small batches for every stage of the journey.</p>
   <div class="hero-actions">
-    <a href="product.html" class="btn btn-primary">Buy Journey Roast — $12</a>
+    <a href="shop.html" class="btn btn-primary">Shop Our Coffee</a>
   </div>
-  <a href="#story" class="hero-secondary-link">Our Story ↓</a>
   <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
 </header>
 
@@ -455,6 +447,31 @@
         </linearGradient>
       </defs>
     </symbol>
+    <symbol id="bag-illustration-first-light" viewBox="0 0 300 400">
+      <ellipse cx="150" cy="382" rx="92" ry="12" fill="#000" opacity="0.18"/>
+      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="#141414"/>
+      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="url(#bagSheenFL)" opacity="0.5"/>
+      <path d="M70 96 Q150 84 230 96 L238 128 Q150 116 62 128 Z" fill="#0b0b0b"/>
+      <rect x="118" y="70" width="64" height="34" rx="6" fill="#0b0b0b"/>
+      <rect x="118" y="70" width="64" height="10" rx="5" fill="#1c1c1c"/>
+      <circle cx="150" cy="130" r="7" fill="none" stroke="#C7A25A" stroke-width="2" opacity="0.8"/>
+      <rect x="98" y="172" width="104" height="118" rx="3" fill="#F6F3EE"/>
+      <rect x="98" y="172" width="104" height="118" rx="3" fill="none" stroke="#C7A25A" stroke-width="1.5"/>
+      <line x1="112" y1="196" x2="188" y2="196" stroke="#C7A25A" stroke-width="1"/>
+      <text x="150" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="1.8" fill="#222222">JOURNEY ROASTERS</text>
+      <text x="150" y="248" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="21" font-style="italic" fill="#141414">First Light</text>
+      <text x="150" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" letter-spacing="1.4" fill="#8a8a80">COLOMBIA · MEDIUM ROAST</text>
+      <line x1="112" y1="276" x2="188" y2="276" stroke="#C7A25A" stroke-width="1"/>
+      <line x1="78" y1="150" x2="78" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+      <line x1="222" y1="150" x2="222" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+      <defs>
+        <linearGradient id="bagSheenFL" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/>
+          <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </symbol>
   </defs>
 </svg>
 
@@ -470,45 +487,65 @@
       <span class="eyebrow">Our Story</span>
       <h2>Roasted with intention, made for the journey.</h2>
       <p>Journey Roasters began with a simple belief: great coffee should be honest, unhurried, and made with care from the first sort to the last drop. Every batch is small, roasted in limited quantities so we can taste, adjust, and hold a standard that never wavers.</p>
-      <p>We work with a single origin in Brazil, roasting deep and dark to bring out notes of chocolate, caramel, and roasted almond — a cup that's consistent, grounding, and good company for wherever the day takes you.</p>
+      <p>We work with select origins — from the deep, dark roasts of Brazil to the bright, balanced cups of Colombia — roasting each one with intention to bring out its own character. Every bag is consistent, grounding, and good company for wherever the day takes you.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ FEATURED COFFEE ============ -->
+<!-- ============ OUR COFFEES ============ -->
 <section id="shop" class="section-cream">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Featured Coffee</span>
-      <h2>Journey Roast</h2>
+      <span class="eyebrow">Our Coffees</span>
+      <h2>Two roasts, one journey.</h2>
     </div>
-    <div class="product-card reveal">
-      <div class="bag-frame">
-        <svg viewBox="0 0 300 400" role="img" aria-label="Journey Roast coffee bag"><use href="#bag-illustration"></use></svg>
-      </div>
-      <div>
-        <span class="eyebrow">Single Origin</span>
-        <h2>Journey Roast</h2>
-        <div class="product-meta-row">
-          <span class="tag">Brazil</span>
-          <span class="tag">Dark Roast</span>
-          <span class="tag">Whole Bean</span>
+    <div class="coffee-grid">
+      <a href="product.html" class="coffee-card reveal">
+        <div class="coffee-media">
+          <svg viewBox="0 0 300 400" role="img" aria-label="Journey Roast coffee bag"><use href="#bag-illustration"></use></svg>
         </div>
-        <p class="product-desc">Deep, rich, and remarkably smooth. Our flagship roast is built for daily ritual — bold enough to wake you up, balanced enough to enjoy slowly.</p>
-        <div class="notes-row">
-          <div class="note-chip"><span class="note-dot"></span>Chocolate</div>
-          <div class="note-chip"><span class="note-dot"></span>Caramel</div>
-          <div class="note-chip"><span class="note-dot"></span>Roasted Almond</div>
+        <div class="coffee-body">
+          <span class="eyebrow">Single Origin</span>
+          <div class="product-meta-row">
+            <span class="tag">Brazil</span>
+            <span class="tag">Dark Roast</span>
+          </div>
+          <h3>Journey Roast</h3>
+          <p class="coffee-desc">Deep, rich, and remarkably smooth — bold enough to wake you up, balanced enough to enjoy slowly.</p>
+          <div class="notes-row">
+            <div class="note-chip"><span class="note-dot"></span>Chocolate</div>
+            <div class="note-chip"><span class="note-dot"></span>Caramel</div>
+            <div class="note-chip"><span class="note-dot"></span>Roasted Almond</div>
+          </div>
+          <div class="coffee-footer">
+            <div class="coffee-price">$12<span>/ 8 oz</span></div>
+            <span class="view-link">View Product →</span>
+          </div>
         </div>
-        <div class="price-row">
-          <span class="amount">$12</span><span class="unit">/ 8 oz</span>
+      </a>
+      <a href="first-light.html" class="coffee-card reveal reveal-delay-1">
+        <div class="coffee-media">
+          <svg viewBox="0 0 300 400" role="img" aria-label="First Light coffee bag"><use href="#bag-illustration-first-light"></use></svg>
         </div>
-        <div class="buy-row">
-          <button class="btn btn-primary buy-btn" data-size="8oz">Buy 8 oz — $12</button>
-          <button class="btn btn-outline-light buy-btn" data-size="1lb">Buy 1 lb — $18.50</button>
+        <div class="coffee-body">
+          <span class="eyebrow">Single Origin</span>
+          <div class="product-meta-row">
+            <span class="tag">Colombia</span>
+            <span class="tag">Medium Roast</span>
+          </div>
+          <h3>First Light</h3>
+          <p class="coffee-desc">A smooth, approachable medium roast with gentle citrus brightness — the perfect start to your day.</p>
+          <div class="notes-row">
+            <div class="note-chip"><span class="note-dot"></span>Milk Chocolate</div>
+            <div class="note-chip"><span class="note-dot"></span>Caramel</div>
+            <div class="note-chip"><span class="note-dot"></span>Subtle Citrus</div>
+          </div>
+          <div class="coffee-footer">
+            <div class="coffee-price">$12<span>/ 8 oz</span></div>
+            <span class="view-link">View Product →</span>
+          </div>
         </div>
-        <a href="product.html" class="view-link">View full details →</a>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -528,8 +565,8 @@
       </div>
       <div class="why-item reveal reveal-delay-1">
         <svg class="why-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="20" r="14"/><path d="M24 34 L24 44 M17 44 L31 44"/><circle cx="24" cy="20" r="4"/></svg>
-        <h3>Single Origin</h3>
-        <p>Sourced from one origin in Brazil, so every bag carries a clear, consistent character.</p>
+        <h3>Thoughtfully Sourced</h3>
+        <p>Selected origins we know and trust, each roasted with intention to bring out its own character.</p>
       </div>
       <div class="why-item reveal reveal-delay-2">
         <svg class="why-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="10" y="14" width="28" height="26" rx="2"/><path d="M10 22 L38 22 M18 14 V8 h12 v6"/></svg>
@@ -670,6 +707,7 @@
           <h4>Shop</h4>
           <a href="shop.html">All Coffee</a>
           <a href="product.html">Journey Roast</a>
+          <a href="first-light.html">First Light</a>
         </div>
         <div class="footer-col">
           <h4>Learn</h4>
@@ -679,7 +717,7 @@
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="mailto:hello@journeyroasters.com">hello@journeyroasters.com</a>
+          <a href="mailto:clowe2605@gmail.com">clowe2605@gmail.com</a>
         </div>
       </div>
     </div>
@@ -747,23 +785,6 @@
 
   // Footer year
   document.getElementById('footerYear').textContent = `© ${new Date().getFullYear()} Journey Roasters. All rights reserved.`;
-
-  // ==================================================================
-  // STRIPE PAYMENT LINKS — replace these with your real Stripe links.
-  // Create Payment Links in your Stripe Dashboard → Payment Links,
-  // then paste each product's URL below. The buy buttons on this page
-  // will send customers straight there.
-  // ==================================================================
-  const STRIPE_LINKS = {
-    '8oz': 'https://buy.stripe.com/dRm5kE4tvfWg7jcesWfMA04',
-    '1lb': 'https://buy.stripe.com/8x27sM0df8tO6f85WqfMA05'
-  };
-  document.querySelectorAll('.buy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const size = btn.getAttribute('data-size');
-      window.location.href = STRIPE_LINKS[size] || STRIPE_LINKS['8oz'];
-    });
-  });
 </script>
 </body>
 </html>
