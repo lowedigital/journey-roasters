@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Journey Roasters</title>
+<meta name="description" content="Shop Journey Roasters coffee. Journey Roast — a dark roast, single-origin Brazilian coffee with notes of chocolate, caramel, and roasted almond.">
+
+<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="favicons/favicon.svg">
+<link rel="shortcut icon" href="favicons/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="manifest" href="favicons/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --black:#0F0F0F; --white:#FFFFFF; --gold:#C7A25A; --gold-soft:#DCC493;
+    --cream:#F6F3EE; --text:#222222; --text-muted:#6B6B63;
+    --line:rgba(15,15,15,0.08); --line-on-dark:rgba(255,255,255,0.14);
+    --container:1280px; --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+  body{ margin:0; background:var(--white); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:300; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,h4{ font-family:'Cormorant Garamond',serif; font-weight:500; margin:0; letter-spacing:0.01em; }
+  p{ margin:0; }
+  ul{ margin:0; padding:0; list-style:none; }
+  button{ font-family:inherit; cursor:pointer; }
+  .container{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+  @media(max-width:640px){ .container{ padding:0 20px; } }
+  .eyebrow{ font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:500; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 28px; font-size:12.5px; letter-spacing:0.13em; text-transform:uppercase; font-weight:500; border-radius:2px; border:1px solid transparent; transition:all .35s var(--ease); white-space:nowrap; }
+  .btn-primary{ background:var(--gold); color:var(--black); }
+  .btn-primary:hover{ background:var(--gold-soft); transform:translateY(-1px); }
+  .btn:focus-visible, a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  /* Nav (shared) */
+  .site-nav{ position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:13px 40px; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); box-shadow:0 1px 0 var(--line); }
+  @media(max-width:640px){ .site-nav{ padding:14px 20px; } }
+  .brand{ font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:0.14em; text-transform:uppercase; color:var(--black); }
+  .nav-links{ display:flex; gap:44px; align-items:center; }
+  .nav-links a{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); font-weight:400; position:relative; padding-bottom:4px; }
+  .nav-links a.is-current{ color:var(--gold); }
+  .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .35s var(--ease); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-right{ display:flex; align-items:center; gap:22px; }
+  .nav-shop-btn{ padding:11px 24px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; background:var(--gold); border:1px solid var(--gold); color:var(--black); border-radius:2px; transition:all .35s var(--ease); }
+  .nav-shop-btn:hover{ background:var(--gold-soft); border-color:var(--gold-soft); transform:translateY(-1px); }
+  .nav-toggle{ display:none; background:none; border:0; width:26px; height:20px; position:relative; }
+  .nav-toggle span{ position:absolute; left:0; right:0; height:1px; background:var(--black); transition:all .3s var(--ease); }
+  .nav-toggle span:nth-child(1){ top:0; } .nav-toggle span:nth-child(2){ top:9px; } .nav-toggle span:nth-child(3){ top:18px; }
+  .nav-toggle.is-open span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-open span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+  .mobile-nav{ position:fixed; inset:0; background:var(--black); z-index:99; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; opacity:0; visibility:hidden; transition:opacity .4s var(--ease); }
+  .mobile-nav.is-open{ opacity:1; visibility:visible; }
+  .mobile-nav a{ font-family:'Cormorant Garamond',serif; font-size:30px; color:var(--cream); }
+  @media(max-width:900px){ .nav-links{ display:none; } .nav-shop-btn{ display:none; } .nav-toggle{ display:block; } }
+
+  .breadcrumb{ padding:96px 0 0; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); }
+  .breadcrumb a{ color:var(--text-muted); transition:color .3s var(--ease); }
+  .breadcrumb a:hover{ color:var(--black); }
+
+  .shop-head{ padding:14px 0 40px; max-width:640px; }
+  .shop-head h1{ font-size:clamp(34px,4.4vw,50px); margin-top:10px; }
+  .shop-head p{ margin-top:10px; color:var(--text-muted); font-size:15.5px; }
+
+  .catalog-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px;
+    padding-bottom:76px;
+  }
+
+  .catalog-card{
+    border:1px solid var(--line); background:var(--white); display:flex; flex-direction:column;
+    transition:border-color .3s var(--ease), transform .3s var(--ease);
+  }
+  .catalog-card:hover{ border-color:var(--gold); transform:translateY(-3px); }
+  .catalog-media{ background:linear-gradient(160deg,#f8f6f1,#eee7d7); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; padding:30px; }
+  .catalog-media svg{ width:60%; }
+  .catalog-body{ padding:20px 22px 24px; display:flex; flex-direction:column; flex:1; }
+  .catalog-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .tag{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--line); padding:5px 11px; border-radius:20px; }
+  .catalog-body h3{ font-size:22px; margin-top:10px; }
+  .catalog-notes{ display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; }
+  .note-chip{ display:flex; align-items:center; gap:7px; font-size:12.5px; color:var(--text-muted); }
+  .note-dot{ width:6px; height:6px; border-radius:50%; background:var(--gold); }
+  .catalog-footer{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:16px; }
+  .catalog-price{ font-family:'Cormorant Garamond',serif; font-size:21px; }
+  .catalog-price span{ font-family:'Inter',sans-serif; font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-left:4px; }
+  .catalog-link{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border-bottom:1px solid var(--gold); padding-bottom:3px; transition:opacity .3s var(--ease); }
+  .catalog-link:hover{ opacity:0.6; }
+
+  .catalog-card.is-soon{ border-style:dashed; opacity:0.7; }
+  .catalog-card.is-soon .catalog-media{ background:var(--cream); }
+  .catalog-card.is-soon .catalog-media svg{ opacity:0.35; }
+  .catalog-card.is-soon h3{ color:var(--text-muted); font-style:italic; }
+
+  /* Footer (shared) */
+  .site-footer{ background:var(--black); color:rgba(255,255,255,0.6); padding:52px 0 26px; }
+  .footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:28px; padding-bottom:32px; border-bottom:1px solid var(--line-on-dark); }
+  .footer-brand{ font-family:'Cormorant Garamond',serif; font-size:22px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); }
+  .footer-tagline{ margin-top:12px; font-size:14px; color:rgba(255,255,255,0.4); max-width:28ch; }
+  .footer-cols{ display:flex; gap:46px; flex-wrap:wrap; }
+  .footer-col h4{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:500; margin-bottom:12px; }
+  .footer-col a{ display:block; font-size:13.5px; color:rgba(255,255,255,0.55); margin-top:8px; transition:color .3s var(--ease); }
+  .footer-col a:hover{ color:var(--gold-soft); }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:18px; flex-wrap:wrap; gap:14px; font-size:12px; color:rgba(255,255,255,0.35); }
+  .social-icon{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--line-on-dark); border-radius:50%; transition:border-color .3s var(--ease), color .3s var(--ease); color:rgba(255,255,255,0.7); }
+  .social-icon:hover{ border-color:var(--gold); color:var(--gold); }
+  .social-icon svg{ width:16px; height:16px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="brand">Journey Roasters</a>
+  <div class="nav-links">
+    <a href="shop.html" class="is-current">Shop</a>
+    <a href="index.html#story">Our Story</a>
+    <a href="index.html#reviews">Reviews</a>
+  </div>
+  <div class="nav-right">
+    <a href="product.html" class="nav-shop-btn">Buy Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="shop.html">Shop</a>
+  <a href="index.html#story">Our Story</a>
+  <a href="index.html#reviews">Reviews</a>
+  <a href="product.html" class="btn btn-primary">Buy Now</a>
+</div>
+
+<div class="container">
+  <p class="breadcrumb"><a href="index.html">Home</a><span style="margin:0 8px;color:var(--line);">/</span>Shop</p>
+
+  <div class="shop-head reveal">
+    <span class="eyebrow">Shop</span>
+    <h1>Our Coffee</h1>
+    <p>One roast, done right. Small batches, single origin, always fresh — with more on the way.</p>
+  </div>
+
+  <div class="catalog-grid">
+    <!-- Journey Roast -->
+    <a href="product.html" class="catalog-card reveal" style="text-decoration:none;color:inherit;">
+      <div class="catalog-media">
+        <svg viewBox="0 0 300 400" role="img" aria-label="Journey Roast black matte coffee bag with gold label"><use href="#bag-illustration"></use></svg>
+      </div>
+      <div class="catalog-body">
+        <span class="eyebrow">Single Origin</span>
+        <div class="catalog-tags">
+          <span class="tag">Brazil</span>
+          <span class="tag">Dark Roast</span>
+        </div>
+        <h3>Journey Roast</h3>
+        <div class="catalog-notes">
+          <div class="note-chip"><span class="note-dot"></span>Chocolate</div>
+          <div class="note-chip"><span class="note-dot"></span>Caramel</div>
+          <div class="note-chip"><span class="note-dot"></span>Roasted Almond</div>
+        </div>
+        <div class="catalog-footer">
+          <div class="catalog-price">$12<span>/ 8 oz</span></div>
+          <span class="catalog-link">View Product →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- To add another roast, duplicate the .catalog-card block above and update its details. -->
+    <div class="catalog-card is-soon reveal" aria-hidden="true">
+      <div class="catalog-media">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#C7A25A" stroke-width="1"><circle cx="32" cy="32" r="20"/><path d="M24 32 h16 M32 24 v16"/></svg>
+      </div>
+      <div class="catalog-body">
+        <span class="eyebrow">Coming Soon</span>
+        <h3>More Roasts Ahead</h3>
+        <p style="margin-top:14px;color:var(--text-muted);font-size:14.5px;line-height:1.7;">New origins and roasts are on the way. Join the newsletter to hear first.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reusable bag illustration -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bag-illustration" viewBox="0 0 300 400">
+      <ellipse cx="150" cy="382" rx="92" ry="12" fill="#000" opacity="0.18"/>
+      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="#141414"/>
+      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="url(#bagSheen)" opacity="0.5"/>
+      <path d="M70 96 Q150 84 230 96 L238 128 Q150 116 62 128 Z" fill="#0b0b0b"/>
+      <rect x="118" y="70" width="64" height="34" rx="6" fill="#0b0b0b"/>
+      <rect x="118" y="70" width="64" height="10" rx="5" fill="#1c1c1c"/>
+      <circle cx="150" cy="130" r="7" fill="none" stroke="#C7A25A" stroke-width="2" opacity="0.8"/>
+      <rect x="98" y="172" width="104" height="118" rx="3" fill="#F6F3EE"/>
+      <rect x="98" y="172" width="104" height="118" rx="3" fill="none" stroke="#C7A25A" stroke-width="1.5"/>
+      <line x1="112" y1="196" x2="188" y2="196" stroke="#C7A25A" stroke-width="1"/>
+      <text x="150" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="1.8" fill="#222222">JOURNEY ROASTERS</text>
+      <text x="150" y="248" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="21" font-style="italic" fill="#141414">Journey Roast</text>
+      <text x="150" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" letter-spacing="1.4" fill="#8a8a80">BRAZIL · DARK ROAST</text>
+      <line x1="112" y1="276" x2="188" y2="276" stroke="#C7A25A" stroke-width="1"/>
+      <line x1="78" y1="150" x2="78" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+      <line x1="222" y1="150" x2="222" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+      <defs>
+        <linearGradient id="bagSheen" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/>
+          <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Journey Roasters</div>
+        <p class="footer-tagline">Coffee for the road ahead.</p>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Journey Roasters on Instagram" style="margin-top:22px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="shop.html">All Coffee</a>
+          <a href="product.html">Journey Roast</a>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <a href="index.html#story">Our Story</a>
+          <a href="index.html#brewing">Brewing</a>
+          <a href="index.html#reviews">Reviews</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@journeyroasters.com">hello@journeyroasters.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="footerYear">© 2026 Journey Roasters. All rights reserved.</span>
+      <span>Roasted in small batches, always.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('is-open');
+    navToggle.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded','false');
+  }));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+    });
+  }, { threshold:0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.getElementById('footerYear').textContent = `© ${new Date().getFullYear()} Journey Roasters. All rights reserved.`;
+</script>
+</body>
+</html>
