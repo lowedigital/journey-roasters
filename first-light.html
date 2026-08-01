@@ -87,12 +87,12 @@
   .product-layout{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; padding:22px 0 70px; align-items:start; }
   @media(max-width:940px){ .product-layout{ grid-template-columns:1fr; gap:36px; padding-bottom:48px; } }
 
-  .gallery-main{ background:linear-gradient(160deg,#f8f6f1,#eee7d7); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; padding:36px; position:relative; }
-  .gallery-main svg{ width:70%; }
+  .gallery-main{ background:var(--cream); aspect-ratio:1/1; overflow:hidden; position:relative; }
+  .gallery-main img{ width:100%; height:100%; object-fit:cover; display:block; }
   .gallery-thumbs{ display:flex; gap:10px; margin-top:10px; }
-  .gallery-thumb{ width:68px; height:68px; border:1px solid var(--line); background:var(--cream); cursor:pointer; padding:10px; transition:border-color .3s var(--ease); }
+  .gallery-thumb{ width:68px; height:68px; border:1px solid var(--line); background:var(--cream); cursor:pointer; padding:0; overflow:hidden; transition:border-color .3s var(--ease); }
   .gallery-thumb.is-active{ border-color:var(--gold); }
-  .gallery-thumb svg{ width:100%; opacity:0.85; }
+  .gallery-thumb img{ width:100%; height:100%; object-fit:cover; display:block; opacity:0.9; }
 
   .purchase-panel{ position:relative; }
   .purchase-panel .eyebrow{ display:block; margin-bottom:8px; }
@@ -206,17 +206,17 @@
   <div class="product-layout">
     <div class="reveal">
       <div class="gallery-main" id="galleryMain">
-        <svg viewBox="0 0 300 400" role="img" aria-label="First Light black matte coffee bag with gold label"><use href="#bag-illustration-first-light"></use></svg>
+        <img id="galleryMainImg" src="images/products/first-light/main.jpg" alt="First Light coffee bag">
       </div>
       <div class="gallery-thumbs">
-        <button class="gallery-thumb is-active" aria-label="Show full bag view" data-view="bag">
-          <svg viewBox="0 0 300 400"><use href="#bag-illustration-first-light"></use></svg>
+        <button class="gallery-thumb is-active" aria-label="Show bag view" data-view="images/products/first-light/main.jpg">
+          <img src="images/products/first-light/main.jpg" alt="">
         </button>
-        <button class="gallery-thumb" aria-label="Show label detail view" data-view="label">
-          <svg viewBox="0 0 120 120" fill="none" stroke="#C7A25A" stroke-width="1.5"><rect x="10" y="30" width="100" height="60" rx="3" fill="#F6F3EE" stroke="#C7A25A"/><line x1="24" y1="46" x2="96" y2="46"/><line x1="24" y1="74" x2="96" y2="74"/></svg>
+        <button class="gallery-thumb" aria-label="Show label detail view" data-view="images/products/first-light/label.jpg">
+          <img src="images/products/first-light/label.jpg" alt="">
         </button>
-        <button class="gallery-thumb" aria-label="Show lifestyle view" data-view="lifestyle">
-          <svg viewBox="0 0 64 64" fill="none" stroke="#C7A25A" stroke-width="1.2"><circle cx="32" cy="32" r="22"/><path d="M32 20 v14 l10 6"/></svg>
+        <button class="gallery-thumb" aria-label="Show lifestyle view" data-view="images/products/first-light/lifestyle.jpg">
+          <img src="images/products/first-light/lifestyle.jpg" alt="">
         </button>
       </div>
     </div>
@@ -249,7 +249,7 @@
 
       <div class="freshness-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 L14 9 L21 9 L15.5 13 L17.5 20 L12 16 L6.5 20 L8.5 13 L3 9 L10 9 Z"/></svg>
-        <p><strong>Freshness Guarantee.</strong> Every bag is roasted to order. If it's not fresh, we'll replace it — no questions asked.</p>
+        <p><strong>Freshness Guarantee.</strong> Every bag is roasted to order and shipped within 48 hours of roasting. If it's not fresh, we'll replace it — no questions asked.</p>
       </div>
 
       <div class="size-select">
@@ -292,36 +292,6 @@
   </div>
 </div>
 
-<!-- Reusable bag illustration — First Light -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="bag-illustration-first-light" viewBox="0 0 300 400">
-      <ellipse cx="150" cy="382" rx="92" ry="12" fill="#000" opacity="0.18"/>
-      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="#141414"/>
-      <path d="M62 96 L238 96 L222 358 Q222 372 208 372 L92 372 Q78 372 78 358 Z" fill="url(#bagSheenFL)" opacity="0.5"/>
-      <path d="M70 96 Q150 84 230 96 L238 128 Q150 116 62 128 Z" fill="#0b0b0b"/>
-      <rect x="118" y="70" width="64" height="34" rx="6" fill="#0b0b0b"/>
-      <rect x="118" y="70" width="64" height="10" rx="5" fill="#1c1c1c"/>
-      <circle cx="150" cy="130" r="7" fill="none" stroke="#C7A25A" stroke-width="2" opacity="0.8"/>
-      <rect x="98" y="172" width="104" height="118" rx="3" fill="#F6F3EE"/>
-      <rect x="98" y="172" width="104" height="118" rx="3" fill="none" stroke="#C7A25A" stroke-width="1.5"/>
-      <line x1="112" y1="196" x2="188" y2="196" stroke="#C7A25A" stroke-width="1"/>
-      <text x="150" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="1.8" fill="#222222">JOURNEY ROASTERS</text>
-      <text x="150" y="248" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="21" font-style="italic" fill="#141414">First Light</text>
-      <text x="150" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" letter-spacing="1.4" fill="#8a8a80">COLOMBIA · MEDIUM ROAST</text>
-      <line x1="112" y1="276" x2="188" y2="276" stroke="#C7A25A" stroke-width="1"/>
-      <line x1="78" y1="150" x2="78" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
-      <line x1="222" y1="150" x2="222" y2="358" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
-      <defs>
-        <linearGradient id="bagSheenFL" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/>
-          <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
-          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-    </symbol>
-  </defs>
-</svg>
 
 <!-- ============ MORE ON THIS ROAST ============ -->
 <section class="info-section">
@@ -349,7 +319,7 @@
 <!-- ============ STICKY PURCHASE BAR ============ -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-bar-info">
-    <svg viewBox="0 0 300 400"><use href="#bag-illustration-first-light"></use></svg>
+    <img src="images/products/first-light/main.jpg" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:2px;">
     <div>
       <div class="sticky-bar-name">First Light</div>
       <div class="sticky-bar-meta" id="stickyBarMeta">8 oz · Medium Roast</div>
@@ -421,11 +391,14 @@
   }, { threshold:0.15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Gallery thumbs (visual state only — swap in real photos per view later)
+  // Gallery thumbs — clicking a thumb swaps the main image
+  const galleryMainImg = document.getElementById('galleryMainImg');
   document.querySelectorAll('.gallery-thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
       document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('is-active'));
       thumb.classList.add('is-active');
+      const src = thumb.getAttribute('data-view');
+      if (src && galleryMainImg) galleryMainImg.src = src;
     });
   });
 
