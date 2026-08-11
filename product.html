@@ -240,12 +240,12 @@
         <div class="detail-row"><dt>Origin</dt><dd>Brazil</dd></div>
         <div class="detail-row"><dt>Roast Level</dt><dd>Dark</dd></div>
         <div class="detail-row"><dt>Processing Method</dt><dd>Natural Process</dd></div>
-        <div class="detail-row"><dt>Format</dt><dd>Whole Bean</dd></div>
+        <div class="detail-row"><dt>Format</dt><dd id="formatValue">Whole Bean</dd></div>
       </dl>
 
       <div class="freshness-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 L14 9 L21 9 L15.5 13 L17.5 20 L12 16 L6.5 20 L8.5 13 L3 9 L10 9 Z"/></svg>
-        <p><strong>Freshness Guarantee.</strong> Every bag is roasted to order. If it's not fresh, we'll replace it — no questions asked.</p>
+        <p><strong>Freshness Guarantee.</strong> Every bag is roasted to order and shipped within 48 hours of roasting. If it's not fresh, we'll replace it — no questions asked.</p>
       </div>
 
       <div class="size-select">
@@ -253,11 +253,23 @@
         <div class="size-options" id="sizeOptions">
           <button class="size-option is-active" data-size="8oz" data-price="12">
             <div class="size-label">8 oz</div>
-            <div class="size-price">$10.50</div>
+            <div class="size-price">$12</div>
           </button>
           <button class="size-option" data-size="1lb" data-price="18.5">
             <div class="size-label">1 lb</div>
-            <div class="size-price">$17</div>
+            <div class="size-price">$18.50</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="size-select" style="margin-top:18px;">
+        <span class="field-label">Grind</span>
+        <div class="size-options" id="grindOptions">
+          <button class="size-option is-active" data-grind="whole">
+            <div class="size-label">Whole Bean</div>
+          </button>
+          <button class="size-option" data-grind="ground">
+            <div class="size-label">Ground</div>
           </button>
         </div>
       </div>
@@ -273,7 +285,7 @@
         </div>
         <div>
           <span class="field-label">Total</span>
-          <div class="total-price" id="totalPrice">$10.50</div>
+          <div class="total-price" id="totalPrice">$12</div>
         </div>
       </div>
 
@@ -281,7 +293,7 @@
         <button class="btn btn-primary btn-block" id="addToCartBtn">Buy Now</button>
         <div class="purchase-secure">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10 V7 a4 4 0 0 1 8 0 v3"/></svg>
-          Secure checkout via Stripe · Coffee Only available in Indiana
+          Secure checkout via Stripe · Free shipping over $40
         </div>
       </div>
     </div>
@@ -296,7 +308,7 @@
       <div class="info-item reveal">
         <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M24 6c6 8-4 10-2 18a10 10 0 1 0 14-2c1 8-6 12-6 12"/></svg>
         <h3>Roasted to Order</h3>
-        <p>We roast in small batches and ship after resting period, so what arrives is always at peak freshness.</p>
+        <p>We roast in small batches and ship within 48 hours, so what arrives is always close to peak freshness.</p>
       </div>
       <div class="info-item reveal">
         <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="20" r="14"/><path d="M24 34 L24 44 M17 44 L31 44"/><circle cx="24" cy="20" r="4"/></svg>
@@ -322,7 +334,7 @@
     </div>
   </div>
   <div class="sticky-bar-actions">
-    <span class="sticky-bar-price" id="stickyBarPrice">$10.50</span>
+    <span class="sticky-bar-price" id="stickyBarPrice">$12</span>
     <button class="btn btn-primary" id="stickyAddToCart">Buy Now</button>
   </div>
 </div>
@@ -403,13 +415,16 @@
   // ------------------------------------------------------------------
   let selectedSize = '8oz';
   let selectedPrice = 12;
+  let selectedGrind = 'whole';
   let quantity = 1;
 
-  const sizeOptions = document.querySelectorAll('.size-option');
+  const sizeOptions = document.querySelectorAll('#sizeOptions .size-option');
+  const grindOptions = document.querySelectorAll('#grindOptions .size-option');
   const qtyValueEl = document.getElementById('qtyValue');
   const totalPriceEl = document.getElementById('totalPrice');
   const stickyBarMeta = document.getElementById('stickyBarMeta');
   const stickyBarPrice = document.getElementById('stickyBarPrice');
+  const formatValueEl = document.getElementById('formatValue');
 
   function formatPrice(n){
     return n % 1 === 0 ? `$${n}` : `$${n.toFixed(2)}`;
@@ -420,7 +435,9 @@
     totalPriceEl.textContent = formatPrice(total);
     stickyBarPrice.textContent = formatPrice(total);
     const sizeLabel = selectedSize === '8oz' ? '8 oz' : '1 lb';
-    stickyBarMeta.textContent = `${sizeLabel} · Dark Roast${quantity > 1 ? ' · Qty ' + quantity : ''}`;
+    const grindLabel = selectedGrind === 'ground' ? 'Ground' : 'Whole Bean';
+    stickyBarMeta.textContent = `${sizeLabel} · ${grindLabel} · Dark Roast${quantity > 1 ? ' · Qty ' + quantity : ''}`;
+    if (formatValueEl) formatValueEl.textContent = grindLabel;
   }
 
   sizeOptions.forEach(opt => {
@@ -429,6 +446,15 @@
       opt.classList.add('is-active');
       selectedSize = opt.getAttribute('data-size');
       selectedPrice = Number(opt.getAttribute('data-price'));
+      updateTotals();
+    });
+  });
+
+  grindOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+      grindOptions.forEach(o => o.classList.remove('is-active'));
+      opt.classList.add('is-active');
+      selectedGrind = opt.getAttribute('data-grind');
       updateTotals();
     });
   });
@@ -446,16 +472,25 @@
 
   // ==================================================================
   // STRIPE PAYMENT LINKS — replace these with your real Stripe links.
-  // Create Payment Links in your Stripe Dashboard → Payment Links,
-  // then paste each size's URL below. Buy Now sends customers
-  // straight to the matching Stripe checkout page.
+  // Create a separate Payment Link in your Stripe Dashboard → Payment
+  // Links for EACH size + grind combination (4 total), then paste each
+  // URL below. Buy Now sends customers straight to the matching
+  // Stripe checkout page for whichever size + grind is selected.
+  // All four Journey Roast links below are live.
   // ==================================================================
   const STRIPE_LINKS = {
-    '8oz': 'https://buy.stripe.com/fZu7sM2ln9xS9rkesWfMA08',
-    '1lb': 'https://buy.stripe.com/9B6eVe9NPaBWfPIacGfMA09'
+    '8oz': {
+      whole: 'https://buy.stripe.com/fZu7sM2ln9xS9rkesWfMA08',
+      ground: 'https://buy.stripe.com/aFadRa2lnfWg0UO4SmfMA0c'
+    },
+    '1lb': {
+      whole: 'https://buy.stripe.com/9B6eVe9NPaBWfPIacGfMA09',
+      ground: 'https://buy.stripe.com/fZucN68JLeSccDw5WqfMA0d'
+    }
   };
   function goToCheckout(){
-    window.location.href = STRIPE_LINKS[selectedSize] || STRIPE_LINKS['8oz'];
+    const sizeLinks = STRIPE_LINKS[selectedSize] || STRIPE_LINKS['8oz'];
+    window.location.href = sizeLinks[selectedGrind] || sizeLinks.whole;
   }
   document.getElementById('addToCartBtn').addEventListener('click', goToCheckout);
   document.getElementById('stickyAddToCart').addEventListener('click', goToCheckout);
