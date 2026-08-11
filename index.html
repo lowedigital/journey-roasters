@@ -189,7 +189,7 @@
   .hero{
     position:relative;
     min-height:88vh;
-    background:#0F0F0F url('/images/hero/hero.png') center 55%/cover no-repeat;
+    background:#0F0F0F url('https://images.unsplash.com/photo-1643301837816-f254c613606e?q=80&w=1920&auto=format&fit=crop') center 55%/cover no-repeat;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center; color:var(--white);
     padding:104px 24px 48px;
@@ -271,6 +271,13 @@
   .split-copy h2{ font-size:clamp(28px,3.2vw,38px); line-height:1.15; }
   .split-copy p{ margin-top:14px; color:var(--text-muted); font-size:15px; line-height:1.75; }
   .split-copy p + p{ margin-top:10px; }
+
+  .story-media{ position:relative; border-radius:2px; overflow:hidden; aspect-ratio:4/5; background:var(--cream); }
+  .story-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .story-close{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px !important; color:var(--text) !important; line-height:1.5 !important; margin-top:22px !important; }
+  .story-signature{ margin-top:20px; }
+  .story-signature .sig-name{ font-family:'Cormorant Garamond',serif; font-size:20px; font-style:italic; color:var(--text); }
+  .story-signature .sig-role{ display:block; margin-top:2px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); }
 
   /* Our Coffees */
   .coffee-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
@@ -423,16 +430,24 @@
 <section id="story">
   <div class="container split reveal">
     <div class="split-media">
-      <div class="placeholder-media wide">
-        <svg viewBox="0 0 64 64" fill="none" stroke="#C7A25A" stroke-width="1"><circle cx="32" cy="32" r="20"/><path d="M20 32 L44 32 M32 20 L32 44"/></svg>
+      <div class="story-media">
+        <img src="images/about/founder.jpg" alt="Caleb Lowe, founder and roaster of Journey Roasters" loading="lazy">
       </div>
     </div>
     <div class="split-copy">
-      <span class="eyebrow">Our Story</span>
-      <h2>Roasted with intention, made for the journey.</h2>
-      <p><p>Journey Roasters started with a small roaster, a few pounds of green coffee, and a desire to make something worth sharing. What began as an experiment in roasting quickly became a pursuit of understanding coffee — learning how different origins, processes, and roast profiles could bring something completely different to the cup.</p>
-<p>Today, we still roast with that same hands-on approach. Every batch is roasted in small quantities, tasted, adjusted, and given the attention it deserves. We work with carefully selected coffees from origins like Brazil, Colombia, and beyond, roasting each one to bring out its distinct character.</p>
-<p>Journey Roasters is built around a simple idea: coffee doesn't need to be complicated to be exceptional. It just needs to be fresh, thoughtfully roasted, and made with care. Wherever the day takes you, we're here to fuel the journey.</p>
+      <span class="eyebrow">Meet the Roaster</span>
+      <h2>Hi, I'm Caleb.</h2>
+      <p>Journey Roasters started with a simple curiosity: what would happen if I roasted coffee myself?</p>
+      <p>What began as an experiment at home quickly became something more. I started learning the process one batch at a time—working with a small FreshRoast SR540, weighing green coffee, adjusting heat and airflow, and trying to understand what was happening as the beans changed. Some batches turned out well. Others taught me exactly what not to do.</p>
+      <p>I kept experimenting with different coffees and roast levels, learning how much difference a few adjustments could make. Along the way, I began sharing what I was roasting with other people and listening to what they thought. That feedback pushed the idea beyond simply roasting coffee for myself.</p>
+      <p>Journey Roasters grew out of that process.</p>
+      <p>The name reflects what I have come to appreciate about coffee: there is a lot behind every cup. A coffee has its own origin, processing, roasting, brewing, and eventually the person sitting down to drink it. Roasting became my part of that journey.</p>
+      <p>Today, Journey Roasters focuses on small-batch coffee roasted with care. I'm still learning, still testing, and still making adjustments with every roast. The goal isn't to make coffee complicated—it's to take the time to make it well.</p>
+      <p class="story-close">This is still a journey. And every bag is another step along the way.</p>
+      <div class="story-signature">
+        <span class="sig-name">Caleb Lowe</span>
+        <span class="sig-role">Founder &amp; Roaster, Journey Roasters</span>
+      </div>
     </div>
   </div>
 </section>
@@ -463,7 +478,7 @@
             <div class="note-chip"><span class="note-dot"></span>Roasted Almond</div>
           </div>
           <div class="coffee-footer">
-            <div class="coffee-price">$10.50<span>/ 8 oz</span></div>
+            <div class="coffee-price">$12<span>/ 8 oz</span></div>
             <span class="view-link">View Product →</span>
           </div>
         </div>
@@ -486,7 +501,7 @@
             <div class="note-chip"><span class="note-dot"></span>Subtle Citrus</div>
           </div>
           <div class="coffee-footer">
-            <div class="coffee-price">$10.50<span>/ 8 oz</span></div>
+            <div class="coffee-price">$12<span>/ 8 oz</span></div>
             <span class="view-link">View Product →</span>
           </div>
         </div>
@@ -591,9 +606,8 @@
           <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.8l-5.6 3.2 1.4-6.3L1 7.4l6.4-.6z"/></svg>
           <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.8l-5.6 3.2 1.4-6.3L1 7.4l6.4-.6z"/></svg>
         </div>
-        <p class="quote">"Our family LOVES Journey Coffee Roasters - some of the most fresh coffee on the Westside of Indy. Subtle, nutty undertones that are sure not to disappoint. You won’t need that coffee shop fix after a bag of this coffee. :)
-"</p>
-        <p class="review-author">— Julie Carter, Danville IN</p>
+        <p class="quote">"Deep, smooth, never bitter. This is the roast I reach for every single morning."</p>
+        <p class="review-author">— Alicia M., Indianapolis</p>
       </div>
       <div class="review-card reveal reveal-delay-1">
         <div class="stars" aria-hidden="true">
@@ -603,8 +617,8 @@
           <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.8l-5.6 3.2 1.4-6.3L1 7.4l6.4-.6z"/></svg>
           <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.8l-5.6 3.2 1.4-6.3L1 7.4l6.4-.6z"/></svg>
         </div>
-        <p class="quote">"Delicious fresh roasted beans! Highly recommend"</p>
-        <p class="review-author">— Katie Lowe, Danville IN</p>
+        <p class="quote">"You can tell it's roasted with care. Chocolate and caramel come through beautifully."</p>
+        <p class="review-author">— David R., Chicago</p>
       </div>
       <div class="review-card reveal reveal-delay-2">
         <div class="stars" aria-hidden="true">
