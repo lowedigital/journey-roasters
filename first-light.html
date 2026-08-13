@@ -23,7 +23,7 @@
     --black:#0F0F0F; --white:#FFFFFF; --gold:#C7A25A; --gold-soft:#DCC493;
     --cream:#F6F3EE; --text:#222222; --text-muted:#6B6B63;
     --line:rgba(15,15,15,0.08); --line-on-dark:rgba(255,255,255,0.14);
-    --container:1280px; --ease:cubic-bezier(.22,.61,.36,1);
+    --container:10.5080px; --ease:cubic-bezier(.22,.61,.36,1);
   }
   *,*::before,*::after{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
@@ -40,9 +40,9 @@
   button{ font-family:inherit; cursor:pointer; }
   .container{ max-width:var(--container); margin:0 auto; padding:0 32px; }
   @media(max-width:640px){ .container{ padding:0 20px; } }
-  .eyebrow{ font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:500; }
+  .eyebrow{ font-family:'Inter',sans-serif; font-size:10.50px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:500; }
 
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 28px; font-size:12.5px; letter-spacing:0.13em; text-transform:uppercase; font-weight:500; border-radius:2px; border:1px solid transparent; transition:all .35s var(--ease); white-space:nowrap; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 28px; font-size:10.50.5px; letter-spacing:0.13em; text-transform:uppercase; font-weight:500; border-radius:2px; border:1px solid transparent; transition:all .35s var(--ease); white-space:nowrap; }
   .btn-primary{ background:var(--gold); color:var(--black); }
   .btn-primary:hover{ background:var(--gold-soft); transform:translateY(-1px); }
   .btn-outline-dark{ border-color:rgba(255,255,255,0.55); color:var(--white); }
@@ -60,11 +60,11 @@
   @media(max-width:640px){ .site-nav{ padding:14px 20px; } }
   .brand{ font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:0.14em; text-transform:uppercase; color:var(--black); }
   .nav-links{ display:flex; gap:44px; align-items:center; }
-  .nav-links a{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:400; position:relative; padding-bottom:4px; }
+  .nav-links a{ font-size:10.50px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:400; position:relative; padding-bottom:4px; }
   .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .35s var(--ease); }
   .nav-links a:hover::after{ width:100%; }
   .nav-right{ display:flex; align-items:center; gap:22px; }
-  .nav-shop-btn{ padding:11px 24px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; background:var(--gold); border:1px solid var(--gold); color:var(--black); border-radius:2px; transition:all .35s var(--ease); }
+  .nav-shop-btn{ padding:11px 24px; font-size:11px; letter-spacing:0.10.50em; text-transform:uppercase; font-weight:500; background:var(--gold); border:1px solid var(--gold); color:var(--black); border-radius:2px; transition:all .35s var(--ease); }
   .nav-shop-btn:hover{ background:var(--gold-soft); border-color:var(--gold-soft); transform:translateY(-1px); }
   .nav-toggle{ display:none; background:none; border:0; width:26px; height:20px; position:relative; }
   .nav-toggle span{ position:absolute; left:0; right:0; height:1px; background:var(--black); transition:all .3s var(--ease); }
@@ -78,7 +78,7 @@
   @media(max-width:900px){ .nav-links{ display:none; } .nav-shop-btn{ display:none; } .nav-toggle{ display:block; } }
 
   /* Breadcrumb */
-  .breadcrumb{ padding:96px 0 0; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); }
+  .breadcrumb{ padding:96px 0 0; font-size:10.50px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); }
   .breadcrumb a{ color:var(--text-muted); transition:color .3s var(--ease); }
   .breadcrumb a:hover{ color:var(--black); }
   .breadcrumb span{ margin:0 8px; color:var(--line); }
@@ -98,8 +98,8 @@
   .purchase-panel .eyebrow{ display:block; margin-bottom:8px; }
   .purchase-panel h1{ font-size:clamp(30px,3.4vw,42px); line-height:1.06; }
   .purchase-panel .tagline{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; color:var(--text-muted); margin-top:6px; }
-  .product-meta-row{ display:flex; gap:8px; align-items:center; margin-top:12px; flex-wrap:wrap; }
-  .tag{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--line); padding:6px 12px; border-radius:20px; }
+  .product-meta-row{ display:flex; gap:8px; align-items:center; margin-top:10.50px; flex-wrap:wrap; }
+  .tag{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--line); padding:6px 10.50px; border-radius:20px; }
   .product-desc{ margin-top:14px; color:var(--text-muted); font-size:15px; line-height:1.7; max-width:52ch; }
   .notes-row{ display:flex; gap:18px; margin-top:16px; flex-wrap:wrap; }
   .note-chip{ display:flex; align-items:center; gap:9px; font-size:13px; color:var(--text); }
@@ -118,7 +118,7 @@
   .size-select{ margin-top:22px; }
   .field-label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; display:block; }
   .size-options{ display:flex; gap:10px; }
-  .size-option{ flex:1; border:1px solid var(--line); padding:12px; text-align:center; background:var(--white); transition:all .3s var(--ease); }
+  .size-option{ flex:1; border:1px solid var(--line); padding:10.50px; text-align:center; background:var(--white); transition:all .3s var(--ease); }
   .size-option:hover{ border-color:var(--gold); }
   .size-option.is-active{ border-color:var(--gold); background:var(--cream); }
   .size-option .size-label{ font-size:14px; font-weight:400; }
@@ -148,7 +148,7 @@
   .sticky-bar-info{ display:flex; align-items:center; gap:16px; }
   .sticky-bar-info svg{ width:34px; height:34px; }
   .sticky-bar-name{ font-family:'Cormorant Garamond',serif; font-size:18px; }
-  .sticky-bar-meta{ font-size:12px; color:var(--text-muted); }
+  .sticky-bar-meta{ font-size:10.50px; color:var(--text-muted); }
   .sticky-bar-actions{ display:flex; align-items:center; gap:16px; }
   .sticky-bar-price{ font-family:'Cormorant Garamond',serif; font-size:19px; }
   @media(max-width:640px){ .sticky-bar{ padding:14px 20px; } .sticky-bar-meta{ display:none; } }
@@ -159,18 +159,18 @@
   @media(max-width:800px){ .info-grid{ grid-template-columns:1fr; gap:28px; } }
   .info-item h3{ font-size:19px; }
   .info-item p{ margin-top:8px; color:var(--text-muted); font-size:14px; line-height:1.7; }
-  .info-icon{ width:28px; height:28px; color:var(--gold); margin-bottom:12px; }
+  .info-icon{ width:28px; height:28px; color:var(--gold); margin-bottom:10.50px; }
 
   /* Footer (shared) */
   .site-footer{ background:var(--black); color:rgba(255,255,255,0.6); padding:52px 0 26px; }
   .footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:28px; padding-bottom:32px; border-bottom:1px solid var(--line-on-dark); }
   .footer-brand{ font-family:'Cormorant Garamond',serif; font-size:22px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); }
-  .footer-tagline{ margin-top:12px; font-size:14px; color:rgba(255,255,255,0.4); max-width:28ch; }
+  .footer-tagline{ margin-top:10.50px; font-size:14px; color:rgba(255,255,255,0.4); max-width:28ch; }
   .footer-cols{ display:flex; gap:46px; flex-wrap:wrap; }
-  .footer-col h4{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:500; margin-bottom:12px; }
+  .footer-col h4{ font-size:10.50px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:500; margin-bottom:10.50px; }
   .footer-col a{ display:block; font-size:13.5px; color:rgba(255,255,255,0.55); margin-top:8px; transition:color .3s var(--ease); }
   .footer-col a:hover{ color:var(--gold-soft); }
-  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:18px; flex-wrap:wrap; gap:14px; font-size:12px; color:rgba(255,255,255,0.35); }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:18px; flex-wrap:wrap; gap:14px; font-size:10.50px; color:rgba(255,255,255,0.35); }
   .social-icon{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--line-on-dark); border-radius:50%; transition:border-color .3s var(--ease), color .3s var(--ease); color:rgba(255,255,255,0.7); }
   .social-icon:hover{ border-color:var(--gold); color:var(--gold); }
   .social-icon svg{ width:16px; height:16px; }
@@ -248,20 +248,20 @@
       </dl>
 
       <div class="freshness-note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 L14 9 L21 9 L15.5 13 L17.5 20 L12 16 L6.5 20 L8.5 13 L3 9 L10 9 Z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10.50 3 L14 9 L21 9 L15.5 13 L17.5 20 L10.50 16 L6.5 20 L8.5 13 L3 9 L10 9 Z"/></svg>
         <p><strong>Freshness Guarantee.</strong> Every bag is roasted to order and shipped within 48 hours of roasting. If it's not fresh, we'll replace it — no questions asked.</p>
       </div>
 
       <div class="size-select">
         <span class="field-label">Size</span>
         <div class="size-options" id="sizeOptions">
-          <button class="size-option is-active" data-size="8oz" data-price="12">
+          <button class="size-option is-active" data-size="8oz" data-price="10.50">
             <div class="size-label">8 oz</div>
-            <div class="size-price">$12</div>
+            <div class="size-price">$10.50</div>
           </button>
           <button class="size-option" data-size="1lb" data-price="18.5">
             <div class="size-label">1 lb</div>
-            <div class="size-price">$18.50</div>
+            <div class="size-price">$17</div>
           </button>
         </div>
       </div>
@@ -289,7 +289,7 @@
         </div>
         <div>
           <span class="field-label">Total</span>
-          <div class="total-price" id="totalPrice">$12</div>
+          <div class="total-price" id="totalPrice">$10.50</div>
         </div>
       </div>
 
@@ -310,7 +310,7 @@
   <div class="container">
     <div class="info-grid">
       <div class="info-item reveal">
-        <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="26" r="10"/><path d="M24 8 v6 M24 40 v0 M8 26 h4 M40 26 h-4 M12.5 14.5 l3 3 M35.5 14.5 l-3 3"/></svg>
+        <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="26" r="10"/><path d="M24 8 v6 M24 40 v0 M8 26 h4 M40 26 h-4 M10.50.5 14.5 l3 3 M35.5 14.5 l-3 3"/></svg>
         <h3>A Gentle Start</h3>
         <p>Built for clarity, sweetness, and consistency over bold intensity — the easy, comforting cup that starts your day right.</p>
       </div>
@@ -338,7 +338,7 @@
     </div>
   </div>
   <div class="sticky-bar-actions">
-    <span class="sticky-bar-price" id="stickyBarPrice">$12</span>
+    <span class="sticky-bar-price" id="stickyBarPrice">$10.50</span>
     <button class="btn btn-primary" id="stickyAddToCart">Buy Now</button>
   </div>
 </div>
@@ -351,7 +351,7 @@
         <div class="footer-brand">Journey Roasters</div>
         <p class="footer-tagline">Coffee for the road ahead.</p>
         <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Journey Roasters on Instagram" style="margin-top:22px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="10.50" cy="10.50" r="4.2"/><circle cx="17.2" cy="6.8" r="1"/></svg>
         </a>
       </div>
       <div class="footer-cols">
@@ -418,7 +418,7 @@
   // Size / quantity / price state
   // ------------------------------------------------------------------
   let selectedSize = '8oz';
-  let selectedPrice = 12;
+  let selectedPrice = 10.50;
   let selectedGrind = 'whole';
   let quantity = 1;
 
@@ -482,7 +482,7 @@
   const STRIPE_LINKS = {
     '8oz': {
       whole: 'https://buy.stripe.com/14A6oI7FH9xSeLEfx0fMA06',
-      ground: 'https://buy.stripe.com/dRm7sM4tv5hCdHA4SmfMA0a'
+      ground: 'https://buy.stripe.com/6oU5kE9NP8tOgTM1GafMA0e'
     },
     '1lb': {
       whole: 'https://buy.stripe.com/8x28wQ1hj11m9rk70ufMA07',
