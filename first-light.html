@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>First Light Coffee | Colombian Medium Roast | Journey Roasters</title>
+<title>First Light — Journey Roasters</title>
 <meta name="description" content="First Light: a smooth, approachable medium roast from Colombia with notes of milk chocolate, caramel, roasted almond, and subtle citrus. Freshly roasted in small batches.">
+<link rel="canonical" href="https://journeyroasting.com/first-light.html">
+
 <!-- Open Graph -->
 <meta property="og:type" content="product">
 <meta property="og:title" content="First Light — Journey Roasters">
@@ -14,184 +16,13 @@
 <meta property="og:image:alt" content="First Light Colombian coffee from Journey Roasters">
 <meta property="og:site_name" content="Journey Roasters">
 <meta property="og:locale" content="en_US">
-  <!-- Twitter Card -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="First Light — Journey Roasters">
 <meta name="twitter:description" content="A smooth Colombian medium roast with notes of milk chocolate, caramel, roasted almond, and subtle citrus.">
 <meta name="twitter:image" content="https://journeyroasting.com/images/products/first-light/main.jpg">
 <meta name="twitter:image:alt" content="First Light Colombian coffee from Journey Roasters">
-<link rel="canonical" href="https://www.journeyroasting.com/first-light.html">
 
-<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/svg+xml" href="favicons/favicon.svg">
-<link rel="shortcut icon" href="favicons/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-title" content="Journey">
-<link rel="manifest" href="favicons/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --black:#0F0F0F; --white:#FFFFFF; --gold:#C7A25A; --gold-soft:#DCC493;
-    --cream:#F6F3EE; --text:#222222; --text-muted:#6B6B63;
-    --line:rgba(15,15,15,0.08); --line-on-dark:rgba(255,255,255,0.14);
-    --container:1280px; --ease:cubic-bezier(.22,.61,.36,1);
-  }
-  *,*::before,*::after{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
-  }
-  body{ margin:0; background:var(--white); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:300; line-height:1.6; -webkit-font-smoothing:antialiased; }
-  img,svg{ display:block; max-width:100%; }
-  a{ color:inherit; text-decoration:none; }
-  h1,h2,h3,h4{ font-family:'Cormorant Garamond',serif; font-weight:500; margin:0; letter-spacing:0.01em; }
-  p{ margin:0; }
-  ul{ margin:0; padding:0; list-style:none; }
-  button{ font-family:inherit; cursor:pointer; }
-  .container{ max-width:var(--container); margin:0 auto; padding:0 32px; }
-  @media(max-width:640px){ .container{ padding:0 20px; } }
-  .eyebrow{ font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:500; }
-
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 28px; font-size:12.5px; letter-spacing:0.13em; text-transform:uppercase; font-weight:500; border-radius:2px; border:1px solid transparent; transition:all .35s var(--ease); white-space:nowrap; }
-  .btn-primary{ background:var(--gold); color:var(--black); }
-  .btn-primary:hover{ background:var(--gold-soft); transform:translateY(-1px); }
-  .btn-outline-dark{ border-color:rgba(255,255,255,0.55); color:var(--white); }
-  .btn-outline-dark:hover{ border-color:var(--white); background:rgba(255,255,255,0.06); }
-  .btn-outline-light{ border-color:var(--black); color:var(--black); }
-  .btn-outline-light:hover{ background:var(--black); color:var(--white); }
-  .btn-block{ width:100%; }
-  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
-
-  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
-  .reveal.is-visible{ opacity:1; transform:translateY(0); }
-
-  /* Nav (shared) */
-  .site-nav{ position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:13px 40px; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); box-shadow:0 1px 0 var(--line); }
-  @media(max-width:640px){ .site-nav{ padding:14px 20px; } }
-  .brand{ font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:0.14em; text-transform:uppercase; color:var(--black); }
-  .nav-links{ display:flex; gap:44px; align-items:center; }
-  .nav-links a{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:400; position:relative; padding-bottom:4px; }
-  .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .35s var(--ease); }
-  .nav-links a:hover::after{ width:100%; }
-  .nav-right{ display:flex; align-items:center; gap:22px; }
-  .nav-shop-btn{ padding:11px 24px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; background:var(--gold); border:1px solid var(--gold); color:var(--black); border-radius:2px; transition:all .35s var(--ease); }
-  .nav-shop-btn:hover{ background:var(--gold-soft); border-color:var(--gold-soft); transform:translateY(-1px); }
-  .nav-toggle{ display:none; background:none; border:0; width:26px; height:20px; position:relative; }
-  .nav-toggle span{ position:absolute; left:0; right:0; height:1px; background:var(--black); transition:all .3s var(--ease); }
-  .nav-toggle span:nth-child(1){ top:0; } .nav-toggle span:nth-child(2){ top:9px; } .nav-toggle span:nth-child(3){ top:18px; }
-  .nav-toggle.is-open span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
-  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
-  .nav-toggle.is-open span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
-  .mobile-nav{ position:fixed; inset:0; background:var(--black); z-index:99; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; opacity:0; visibility:hidden; transition:opacity .4s var(--ease); }
-  .mobile-nav.is-open{ opacity:1; visibility:visible; }
-  .mobile-nav a{ font-family:'Cormorant Garamond',serif; font-size:30px; color:var(--cream); }
-  @media(max-width:900px){ .nav-links{ display:none; } .nav-shop-btn{ display:none; } .nav-toggle{ display:block; } }
-
-  /* Breadcrumb */
-  .breadcrumb{ padding:96px 0 0; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); }
-  .breadcrumb a{ color:var(--text-muted); transition:color .3s var(--ease); }
-  .breadcrumb a:hover{ color:var(--black); }
-  .breadcrumb span{ margin:0 8px; color:var(--line); }
-
-  /* Product layout */
-  .product-layout{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; padding:22px 0 70px; align-items:start; }
-  @media(max-width:940px){ .product-layout{ grid-template-columns:1fr; gap:36px; padding-bottom:48px; } }
-
-  .gallery-main{ background:var(--cream); aspect-ratio:1/1; overflow:hidden; position:relative; }
-  .gallery-main img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .gallery-thumbs{ display:flex; gap:10px; margin-top:10px; }
-  .gallery-thumb{ width:68px; height:68px; border:1px solid var(--line); background:var(--cream); cursor:pointer; padding:0; overflow:hidden; transition:border-color .3s var(--ease); }
-  .gallery-thumb.is-active{ border-color:var(--gold); }
-  .gallery-thumb img{ width:100%; height:100%; object-fit:cover; display:block; opacity:0.9; }
-
-  .purchase-panel{ position:relative; }
-  .purchase-panel .eyebrow{ display:block; margin-bottom:8px; }
-  .purchase-panel h1{ font-size:clamp(30px,3.4vw,42px); line-height:1.06; }
-  .purchase-panel .tagline{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; color:var(--text-muted); margin-top:6px; }
-  .product-meta-row{ display:flex; gap:8px; align-items:center; margin-top:12px; flex-wrap:wrap; }
-  .tag{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--line); padding:6px 12px; border-radius:20px; }
-  .product-desc{ margin-top:14px; color:var(--text-muted); font-size:15px; line-height:1.7; max-width:52ch; }
-  .notes-row{ display:flex; gap:18px; margin-top:16px; flex-wrap:wrap; }
-  .note-chip{ display:flex; align-items:center; gap:9px; font-size:13px; color:var(--text); }
-  .note-dot{ width:8px; height:8px; border-radius:50%; background:var(--gold); }
-
-  .detail-list{ margin-top:20px; border-top:1px solid var(--line); }
-  .detail-row{ display:flex; justify-content:space-between; gap:20px; padding:11px 0; border-bottom:1px solid var(--line); font-size:13.5px; }
-  .detail-row dt{ color:var(--text-muted); }
-  .detail-row dd{ margin:0; text-align:right; font-weight:400; }
-
-  .freshness-note{ display:flex; gap:10px; align-items:flex-start; margin-top:16px; padding:13px 16px; background:var(--cream); border-radius:2px; }
-  .freshness-note svg{ width:20px; height:20px; color:var(--gold); flex-shrink:0; margin-top:2px; }
-  .freshness-note p{ font-size:13.5px; color:var(--text-muted); line-height:1.65; }
-  .freshness-note strong{ color:var(--text); font-weight:500; }
-
-  .size-select{ margin-top:22px; }
-  .field-label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; display:block; }
-  .size-options{ display:flex; gap:10px; }
-  .size-option{ flex:1; border:1px solid var(--line); padding:12px; text-align:center; background:var(--white); transition:all .3s var(--ease); }
-  .size-option:hover{ border-color:var(--gold); }
-  .size-option.is-active{ border-color:var(--gold); background:var(--cream); }
-  .size-option .size-label{ font-size:14px; font-weight:400; }
-  .size-option .size-price{ font-family:'Cormorant Garamond',serif; font-size:20px; margin-top:4px; }
-
-  .qty-row{ display:flex; align-items:center; gap:18px; margin-top:20px; flex-wrap:wrap; }
-  .qty-stepper{ display:flex; align-items:center; border:1px solid var(--line); }
-  .qty-stepper button{ width:36px; height:38px; background:none; border:0; font-size:15px; color:var(--text); transition:background .3s var(--ease); }
-  .qty-stepper button:hover{ background:var(--cream); }
-  .qty-stepper span{ width:40px; text-align:center; font-size:14px; }
-  .total-price{ font-family:'Cormorant Garamond',serif; font-size:24px; }
-
-  .purchase-cta{ margin-top:20px; display:flex; flex-direction:column; gap:10px; }
-  .purchase-secure{ display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--text-muted); margin-top:6px; letter-spacing:0.02em; }
-  .purchase-secure svg{ width:14px; height:14px; color:var(--gold); }
-
-  /* Sticky purchase bar */
-  .sticky-bar{
-    position:fixed; left:0; right:0; bottom:0; z-index:90;
-    background:rgba(255,255,255,0.97); backdrop-filter:blur(10px);
-    border-top:1px solid var(--line);
-    display:flex; align-items:center; justify-content:space-between;
-    padding:13px 40px; gap:18px;
-    transform:translateY(110%); transition:transform .4s var(--ease);
-  }
-  .sticky-bar.is-shown{ transform:translateY(0); }
-  .sticky-bar-info{ display:flex; align-items:center; gap:16px; }
-  .sticky-bar-info svg{ width:34px; height:34px; }
-  .sticky-bar-name{ font-family:'Cormorant Garamond',serif; font-size:18px; }
-  .sticky-bar-meta{ font-size:12px; color:var(--text-muted); }
-  .sticky-bar-actions{ display:flex; align-items:center; gap:16px; }
-  .sticky-bar-price{ font-family:'Cormorant Garamond',serif; font-size:19px; }
-  @media(max-width:640px){ .sticky-bar{ padding:14px 20px; } .sticky-bar-meta{ display:none; } }
-
-  /* Extra info sections */
-  section.info-section{ padding:60px 0; border-top:1px solid var(--line); }
-  .info-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
-  @media(max-width:800px){ .info-grid{ grid-template-columns:1fr; gap:28px; } }
-  .info-item h3{ font-size:19px; }
-  .info-item p{ margin-top:8px; color:var(--text-muted); font-size:14px; line-height:1.7; }
-  .info-icon{ width:28px; height:28px; color:var(--gold); margin-bottom:12px; }
-
-  /* Footer (shared) */
-  .site-footer{ background:var(--black); color:rgba(255,255,255,0.6); padding:52px 0 26px; }
-  .footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:28px; padding-bottom:32px; border-bottom:1px solid var(--line-on-dark); }
-  .footer-brand{ font-family:'Cormorant Garamond',serif; font-size:22px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); }
-  .footer-tagline{ margin-top:12px; font-size:14px; color:rgba(255,255,255,0.4); max-width:28ch; }
-  .footer-cols{ display:flex; gap:46px; flex-wrap:wrap; }
-  .footer-col h4{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:500; margin-bottom:12px; }
-  .footer-col a{ display:block; font-size:13.5px; color:rgba(255,255,255,0.55); margin-top:8px; transition:color .3s var(--ease); }
-  .footer-col a:hover{ color:var(--gold-soft); }
-  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:18px; flex-wrap:wrap; gap:14px; font-size:12px; color:rgba(255,255,255,0.35); }
-  .social-icon{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--line-on-dark); border-radius:50%; transition:border-color .3s var(--ease), color .3s var(--ease); color:rgba(255,255,255,0.7); }
-  .social-icon:hover{ border-color:var(--gold); color:var(--gold); }
-  .social-icon svg{ width:16px; height:16px; }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -220,342 +51,68 @@
   }
 }
 </script>
+
+<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="favicons/favicon.svg">
+<link rel="shortcut icon" href="favicons/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Journey">
+<link rel="manifest" href="favicons/site.webmanifest">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{--black:#0F0F0F;--white:#FFFFFF;--gold:#C7A25A;--gold-soft:#DCC493;--cream:#F6F3EE;--text:#222222;--text-muted:#6B6B63;--line:rgba(15,15,15,0.08);--line-on-dark:rgba(255,255,255,0.14);--container:1280px;--ease:cubic-bezier(.22,.61,.36,1)}
+  *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+  body{margin:0;background:var(--white);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}img,svg{display:block;max-width:100%}a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;margin:0;letter-spacing:.01em}p{margin:0}ul{margin:0;padding:0;list-style:none}button{font-family:inherit;cursor:pointer}.container{max-width:var(--container);margin:0 auto;padding:0 32px}@media(max-width:640px){.container{padding:0 20px}}.eyebrow{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:500;border-radius:2px;border:1px solid transparent;transition:all .35s var(--ease);white-space:nowrap}.btn-primary{background:var(--gold);color:var(--black)}.btn-primary:hover{background:var(--gold-soft);transform:translateY(-1px)}.btn-outline-dark{border-color:rgba(255,255,255,.55);color:var(--white)}.btn-outline-dark:hover{border-color:var(--white);background:rgba(255,255,255,.06)}.btn-outline-light{border-color:var(--black);color:var(--black)}.btn-outline-light:hover{background:var(--black);color:var(--white)}.btn-block{width:100%}.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.reveal.is-visible{opacity:1;transform:translateY(0)}
+  .site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:13px 40px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}@media(max-width:640px){.site-nav{padding:14px 20px}}.brand{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--black)}.nav-links{display:flex;gap:44px;align-items:center}.nav-links a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:400;position:relative;padding-bottom:4px}.nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .35s var(--ease)}.nav-links a:hover::after{width:100%}.nav-right{display:flex;align-items:center;gap:22px}.nav-shop-btn{padding:11px 24px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;background:var(--gold);border:1px solid var(--gold);color:var(--black);border-radius:2px;transition:all .35s var(--ease)}.nav-shop-btn:hover{background:var(--gold-soft);border-color:var(--gold-soft);transform:translateY(-1px)}.nav-toggle{display:none;background:none;border:0;width:26px;height:20px;position:relative}.nav-toggle span{position:absolute;left:0;right:0;height:1px;background:var(--black);transition:all .3s var(--ease)}.nav-toggle span:nth-child(1){top:0}.nav-toggle span:nth-child(2){top:9px}.nav-toggle span:nth-child(3){top:18px}.nav-toggle.is-open span:nth-child(1){transform:translateY(9px) rotate(45deg)}.nav-toggle.is-open span:nth-child(2){opacity:0}.nav-toggle.is-open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}.mobile-nav{position:fixed;inset:0;background:var(--black);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease)}.mobile-nav.is-open{opacity:1;visibility:visible}.mobile-nav a{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--cream)}@media(max-width:900px){.nav-links{display:none}.nav-shop-btn{display:none}.nav-toggle{display:block}}
+  .breadcrumb{padding:96px 0 0;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}.breadcrumb a{color:var(--text-muted);transition:color .3s var(--ease)}.breadcrumb a:hover{color:var(--black)}.breadcrumb span{margin:0 8px;color:var(--line)}
+  .product-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;padding:22px 0 70px;align-items:start}@media(max-width:940px){.product-layout{grid-template-columns:1fr;gap:36px;padding-bottom:48px}}.gallery-main{background:var(--cream);aspect-ratio:1/1;overflow:hidden;position:relative}.gallery-main img{width:100%;height:100%;object-fit:cover;display:block}.gallery-thumbs{display:flex;gap:10px;margin-top:10px}.gallery-thumb{width:68px;height:68px;border:1px solid var(--line);background:var(--cream);cursor:pointer;padding:0;overflow:hidden;transition:border-color .3s var(--ease)}.gallery-thumb.is-active{border-color:var(--gold)}.gallery-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9}
+  .purchase-panel{position:relative}.purchase-panel .eyebrow{display:block;margin-bottom:8px}.purchase-panel h1{font-size:clamp(30px,3.4vw,42px);line-height:1.06}.purchase-panel .tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--text-muted);margin-top:6px}.product-meta-row{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--line);padding:6px 12px;border-radius:20px}.product-desc{margin-top:14px;color:var(--text-muted);font-size:15px;line-height:1.7;max-width:52ch}.notes-row{display:flex;gap:18px;margin-top:16px;flex-wrap:wrap}.note-chip{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--text)}.note-dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .detail-list{margin-top:20px;border-top:1px solid var(--line)}.detail-row{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px}.detail-row dt{color:var(--text-muted)}.detail-row dd{margin:0;text-align:right;font-weight:400}.freshness-note{display:flex;gap:10px;align-items:flex-start;margin-top:16px;padding:13px 16px;background:var(--cream);border-radius:2px}.freshness-note svg{width:20px;height:20px;color:var(--gold);flex-shrink:0;margin-top:2px}.freshness-note p{font-size:13.5px;color:var(--text-muted);line-height:1.65}.freshness-note strong{color:var(--text);font-weight:500}
+  .size-select{margin-top:22px}.field-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block}.size-options{display:flex;gap:10px}.size-option{flex:1;border:1px solid var(--line);padding:12px;text-align:center;background:var(--white);transition:all .3s var(--ease)}.size-option:hover{border-color:var(--gold)}.size-option.is-active{border-color:var(--gold);background:var(--cream)}.size-option .size-label{font-size:14px;font-weight:400}.size-option .size-price{font-family:'Cormorant Garamond',serif;font-size:20px;margin-top:4px}
+  .qty-row{display:flex;align-items:center;gap:18px;margin-top:20px;flex-wrap:wrap}.qty-stepper{display:flex;align-items:center;border:1px solid var(--line)}.qty-stepper button{width:36px;height:38px;background:none;border:0;font-size:15px;color:var(--text);transition:background .3s var(--ease)}.qty-stepper button:hover{background:var(--cream)}.qty-stepper span{width:40px;text-align:center;font-size:14px}.total-price{font-family:'Cormorant Garamond',serif;font-size:24px}.purchase-cta{margin-top:20px;display:flex;flex-direction:column;gap:10px}.purchase-secure{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--text-muted);margin-top:6px;letter-spacing:.02em}.purchase-secure svg{width:14px;height:14px;color:var(--gold)}
+  .sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:13px 40px;gap:18px;transform:translateY(110%);transition:transform .4s var(--ease)}.sticky-bar.is-shown{transform:translateY(0)}.sticky-bar-info{display:flex;align-items:center;gap:16px}.sticky-bar-info svg{width:34px;height:34px}.sticky-bar-name{font-family:'Cormorant Garamond',serif;font-size:18px}.sticky-bar-meta{font-size:12px;color:var(--text-muted)}.sticky-bar-actions{display:flex;align-items:center;gap:16px}.sticky-bar-price{font-family:'Cormorant Garamond',serif;font-size:19px}@media(max-width:640px){.sticky-bar{padding:14px 20px}.sticky-bar-meta{display:none}}
+  section.info-section{padding:60px 0;border-top:1px solid var(--line)}.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}@media(max-width:800px){.info-grid{grid-template-columns:1fr;gap:28px}}.info-item h3{font-size:19px}.info-item p{margin-top:8px;color:var(--text-muted);font-size:14px;line-height:1.7}.info-icon{width:28px;height:28px;color:var(--gold);margin-bottom:12px}
+  .site-footer{background:var(--black);color:rgba(255,255,255,.6);padding:52px 0 26px}.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:32px;border-bottom:1px solid var(--line-on-dark)}.footer-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--white)}.footer-tagline{margin-top:12px;font-size:14px;color:rgba(255,255,255,.4);max-width:28ch}.footer-cols{display:flex;gap:46px;flex-wrap:wrap}.footer-col h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:12px}.footer-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.55);margin-top:8px;transition:color .3s var(--ease)}.footer-col a:hover{color:var(--gold-soft)}.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:18px;flex-wrap:wrap;gap:14px;font-size:12px;color:rgba(255,255,255,.35)}.social-icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--line-on-dark);border-radius:50%;transition:border-color .3s var(--ease),color .3s var(--ease);color:rgba(255,255,255,.7)}.social-icon:hover{border-color:var(--gold);color:var(--gold)}.social-icon svg{width:16px;height:16px}
+</style>
 </head>
 <body>
-
-<nav class="site-nav">
-  <a href="index.html" class="brand">Journey Roasters</a>
-  <div class="nav-links">
-    <a href="shop.html">Shop</a>
-    <a href="index.html#story">Our Story</a>
-    <a href="index.html#reviews">Reviews</a>
-  </div>
-  <div class="nav-right">
-    <a href="#mainPurchaseCta" class="nav-shop-btn">Buy Now</a>
-  </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-nav" id="mobileNav">
-  <a href="shop.html">Shop</a>
-  <a href="index.html#story">Our Story</a>
-  <a href="index.html#reviews">Reviews</a>
-  <a href="#mainPurchaseCta" class="btn btn-primary">Buy Now</a>
-</div>
-
+<nav class="site-nav"><a href="index.html" class="brand">Journey Roasters</a><div class="nav-links"><a href="shop.html">Shop</a><a href="index.html#story">Our Story</a><a href="index.html#reviews">Reviews</a></div><div class="nav-right"><a href="#mainPurchaseCta" class="nav-shop-btn">Buy Now</a></div><button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button></nav>
+<div class="mobile-nav" id="mobileNav"><a href="shop.html">Shop</a><a href="index.html#story">Our Story</a><a href="index.html#reviews">Reviews</a><a href="#mainPurchaseCta" class="btn btn-primary">Buy Now</a></div>
 <div class="container">
-  <p class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="shop.html">Shop</a><span>/</span>First Light</p>
-
-  <div class="product-layout">
-    <div class="reveal">
-      <div class="gallery-main" id="galleryMain">
-        <img id="galleryMainImg" src="images/products/first-light/main.jpg" alt="First Light coffee bag">
-      </div>
-      <div class="gallery-thumbs">
-        <button class="gallery-thumb is-active" aria-label="Show bag view" data-view="images/products/first-light/main.jpg">
-          <img src="images/products/first-light/main.jpg" alt="">
-        </button>
-        <button class="gallery-thumb" aria-label="Show label detail view" data-view="images/products/first-light/label.jpg">
-          <img src="images/products/first-light/label.jpg" alt="">
-        </button>
-        <button class="gallery-thumb" aria-label="Show lifestyle view" data-view="images/products/first-light/lifestyle.jpg">
-          <img src="images/products/first-light/lifestyle.jpg" alt="">
-        </button>
-      </div>
-    </div>
-
-    <div class="purchase-panel reveal">
-      <span class="eyebrow">Single Origin · Colombia</span>
-      <h1>First Light</h1>
-      <p class="tagline">The quiet optimism of a new morning.</p>
-      <div class="product-meta-row">
-        <span class="tag">Colombia</span>
-        <span class="tag">Medium Roast</span>
-        <span class="tag">Whole Bean</span>
-      </div>
-      <p class="product-desc">A smooth, approachable medium roast crafted to be the perfect start to your day. Balanced notes of milk chocolate, caramel, and roasted almond meet a gentle citrus brightness for a clean, sweet finish — built for clarity and consistency over bold intensity, whether brewed as drip, pour-over, French press, AeroPress, or espresso.</p>
-
-      <div class="notes-row">
-        <div class="note-chip"><span class="note-dot"></span>Milk Chocolate</div>
-        <div class="note-chip"><span class="note-dot"></span>Caramel</div>
-        <div class="note-chip"><span class="note-dot"></span>Roasted Almond</div>
-        <div class="note-chip"><span class="note-dot"></span>Subtle Citrus</div>
-      </div>
-
-      <dl class="detail-list">
-        <div class="detail-row"><dt>Origin</dt><dd>Colombia</dd></div>
-        <div class="detail-row"><dt>Roast Level</dt><dd>Medium</dd></div>
-        <div class="detail-row"><dt>Body</dt><dd>Medium</dd></div>
-        <div class="detail-row"><dt>Acidity</dt><dd>Bright, Balanced</dd></div>
-        <div class="detail-row"><dt>Format</dt><dd id="formatValue">Whole Bean</dd></div>
-      </dl>
-
-      <div class="freshness-note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 L14 9 L21 9 L15.5 13 L17.5 20 L12 16 L6.5 20 L8.5 13 L3 9 L10 9 Z"/></svg>
-        <p><strong>Freshness Guarantee.</strong> Every bag is roasted to order and shipped within 48 hours of roasting. If it's not fresh, we'll replace it — no questions asked.</p>
-      </div>
-
-      <div class="size-select">
-        <span class="field-label">Size</span>
-        <div class="size-options" id="sizeOptions">
-          <button class="size-option is-active" data-size="8oz" data-price="12">
-            <div class="size-label">8 oz</div>
-            <div class="size-price">$10.50</div>
-          </button>
-          <button class="size-option" data-size="1lb" data-price="18.5">
-            <div class="size-label">1 lb</div>
-            <div class="size-price">$17</div>
-          </button>
-        </div>
-      </div>
-
-      <div class="size-select" style="margin-top:18px;">
-        <span class="field-label">Grind</span>
-        <div class="size-options" id="grindOptions">
-          <button class="size-option is-active" data-grind="whole">
-            <div class="size-label">Whole Bean</div>
-          </button>
-          <button class="size-option" data-grind="ground">
-            <div class="size-label">Ground</div>
-          </button>
-        </div>
-      </div>
-
-      <div class="qty-row">
-        <div>
-          <span class="field-label">Quantity</span>
-          <div class="qty-stepper">
-            <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
-            <span id="qtyValue">1</span>
-            <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
-          </div>
-        </div>
-        <div>
-          <span class="field-label">Total</span>
-          <div class="total-price" id="totalPrice">$10.50</div>
-        </div>
-      </div>
-
-      <div class="purchase-cta" id="mainPurchaseCta">
-        <button class="btn btn-primary btn-block" id="addToCartBtn">Buy Now</button>
-        <div class="purchase-secure">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10 V7 a4 4 0 0 1 8 0 v3"/></svg>
-          Secure checkout via Stripe · Free shipping over $40
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ============ MORE ON THIS ROAST ============ -->
-<section class="info-section">
-  <div class="container">
-    <div class="info-grid">
-      <div class="info-item reveal">
-        <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="26" r="10"/><path d="M24 8 v6 M24 40 v0 M8 26 h4 M40 26 h-4 M12.5 14.5 l3 3 M35.5 14.5 l-3 3"/></svg>
-        <h3>A Gentle Start</h3>
-        <p>Built for clarity, sweetness, and consistency over bold intensity — the easy, comforting cup that starts your day right.</p>
-      </div>
-      <div class="info-item reveal">
-        <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="20" r="14"/><path d="M24 34 L24 44 M17 44 L31 44"/><circle cx="24" cy="20" r="4"/></svg>
-        <h3>Bright, Balanced Colombia</h3>
-        <p>Sourced from Colombia for a medium body and a bright, balanced acidity that stays smooth from first sip to last.</p>
-      </div>
-      <div class="info-item reveal">
-        <svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 10 h20 l-4 14 a8 8 0 0 1-6 6h-0 a8 8 0 0 1-6-6z"/><path d="M20 38 h8 M24 30 v8"/></svg>
-        <h3>Brews Beautifully, However You Like It</h3>
-        <p>Drip, pour-over, French press, AeroPress, or espresso — First Light holds its balance across every method. See our <a href="index.html#brewing" style="border-bottom:1px solid #C7A25A;">brewing guide</a>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ STICKY PURCHASE BAR ============ -->
-<div class="sticky-bar" id="stickyBar">
-  <div class="sticky-bar-info">
-    <img src="images/products/first-light/main.jpg" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:2px;">
-    <div>
-      <div class="sticky-bar-name">First Light</div>
-      <div class="sticky-bar-meta" id="stickyBarMeta">8 oz · Medium Roast</div>
-    </div>
-  </div>
-  <div class="sticky-bar-actions">
-    <span class="sticky-bar-price" id="stickyBarPrice">$10.50</span>
-    <button class="btn btn-primary" id="stickyAddToCart">Buy Now</button>
-  </div>
-</div>
-
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand">Journey Roasters</div>
-        <p class="footer-tagline">Coffee for the road ahead.</p>
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Journey Roasters on Instagram" style="margin-top:22px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-        </a>
-      </div>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <h4>Shop</h4>
-          <a href="shop.html">All Coffee</a>
-          <a href="product.html">Journey Roast</a>
-          <a href="first-light.html">First Light</a>
-        </div>
-        <div class="footer-col">
-          <h4>Learn</h4>
-          <a href="index.html#story">Our Story</a>
-          <a href="index.html#brewing">Brewing</a>
-          <a href="index.html#reviews">Reviews</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <a href="mailto:clowe2605@gmail.com">clowe2605@gmail.com</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span id="footerYear">© 2026 Journey Roasters. All rights reserved.</span>
-      <span>Roasted in small batches, always.</span>
-    </div>
-  </div>
-</footer>
-
+<p class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="shop.html">Shop</a><span>/</span>First Light</p>
+<div class="product-layout">
+<div class="reveal"><div class="gallery-main" id="galleryMain"><img id="galleryMainImg" src="images/products/first-light/main.jpg" alt="First Light coffee bag"></div><div class="gallery-thumbs"><button class="gallery-thumb is-active" aria-label="Show bag view" data-view="images/products/first-light/main.jpg"><img src="images/products/first-light/main.jpg" alt=""></button><button class="gallery-thumb" aria-label="Show label detail view" data-view="images/products/first-light/label.jpg"><img src="images/products/first-light/label.jpg" alt=""></button><button class="gallery-thumb" aria-label="Show lifestyle view" data-view="images/products/first-light/lifestyle.jpg"><img src="images/products/first-light/lifestyle.jpg" alt=""></button></div></div>
+<div class="purchase-panel reveal"><span class="eyebrow">Single Origin · Colombia</span><h1>First Light</h1><p class="tagline">The quiet optimism of a new morning.</p><div class="product-meta-row"><span class="tag">Colombia</span><span class="tag">Medium Roast</span><span class="tag">Whole Bean</span></div><p class="product-desc">A smooth, approachable medium roast crafted to be the perfect start to your day. Balanced notes of milk chocolate, caramel, and roasted almond meet a gentle citrus brightness for a clean, sweet finish — built for clarity and consistency over bold intensity, whether brewed as drip, pour-over, French press, AeroPress, or espresso.</p>
+<div class="notes-row"><div class="note-chip"><span class="note-dot"></span>Milk Chocolate</div><div class="note-chip"><span class="note-dot"></span>Caramel</div><div class="note-chip"><span class="note-dot"></span>Roasted Almond</div><div class="note-chip"><span class="note-dot"></span>Subtle Citrus</div></div>
+<dl class="detail-list"><div class="detail-row"><dt>Origin</dt><dd>Colombia</dd></div><div class="detail-row"><dt>Roast Level</dt><dd>Medium</dd></div><div class="detail-row"><dt>Body</dt><dd>Medium</dd></div><div class="detail-row"><dt>Acidity</dt><dd>Bright, Balanced</dd></div><div class="detail-row"><dt>Format</dt><dd id="formatValue">Whole Bean</dd></div></dl>
+<div class="freshness-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 L14 9 L21 9 L15.5 13 L17.5 20 L12 16 L6.5 20 L8.5 13 L3 9 L10 9 Z"/></svg><p><strong>Freshness Guarantee.</strong> Every bag is roasted to order and shipped within 48 hours of roasting. If it's not fresh, we'll replace it — no questions asked.</p></div>
+<div class="size-select"><span class="field-label">Size</span><div class="size-options" id="sizeOptions"><button class="size-option is-active" data-size="8oz" data-price="10.5"><div class="size-label">8 oz</div><div class="size-price">$10.50</div></button><button class="size-option" data-size="1lb" data-price="17"><div class="size-label">1 lb</div><div class="size-price">$17</div></button></div></div>
+<div class="size-select" style="margin-top:18px;"><span class="field-label">Grind</span><div class="size-options" id="grindOptions"><button class="size-option is-active" data-grind="whole"><div class="size-label">Whole Bean</div></button><button class="size-option" data-grind="ground"><div class="size-label">Ground</div></button></div></div>
+<div class="qty-row"><div><span class="field-label">Quantity</span><div class="qty-stepper"><button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button><span id="qtyValue">1</span><button type="button" id="qtyPlus" aria-label="Increase quantity">+</button></div></div><div><span class="field-label">Total</span><div class="total-price" id="totalPrice">$10.50</div></div></div>
+<div class="purchase-cta" id="mainPurchaseCta"><button class="btn btn-primary btn-block" id="addToCartBtn">Buy Now</button><div class="purchase-secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10 V7 a4 4 0 0 1 8 0 v3"/></svg>Secure checkout via Stripe · Free shipping over $40</div></div></div></div></div>
+<section class="info-section"><div class="container"><div class="info-grid"><div class="info-item reveal"><svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="26" r="10"/><path d="M24 8 v6 M24 40 v0 M8 26 h4 M40 26 h-4 M12.5 14.5 l3 3 M35.5 14.5 l-3 3"/></svg><h3>A Gentle Start</h3><p>Built for clarity, sweetness, and consistency over bold intensity — the easy, comforting cup that starts your day right.</p></div><div class="info-item reveal"><svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="20" r="14"/><path d="M24 34 L24 44 M17 44 L31 44"/><circle cx="24" cy="20" r="4"/></svg><h3>Bright, Balanced Colombia</h3><p>Sourced from Colombia for a medium body and a bright, balanced acidity that stays smooth from first sip to last.</p></div><div class="info-item reveal"><svg class="info-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 10 h20 l-4 14 a8 8 0 0 1-6 6h-0 a8 8 0 0 1-6-6z"/><path d="M20 38 h8 M24 30 v8"/></svg><h3>Brews Beautifully, However You Like It</h3><p>Drip, pour-over, French press, AeroPress, or espresso — First Light holds its balance across every method. See our <a href="index.html#brewing" style="border-bottom:1px solid #C7A25A;">brewing guide</a>.</p></div></div></div></section>
+<div class="sticky-bar" id="stickyBar"><div class="sticky-bar-info"><img src="images/products/first-light/main.jpg" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:2px;"><div><div class="sticky-bar-name">First Light</div><div class="sticky-bar-meta" id="stickyBarMeta">8 oz · Whole Bean · Medium Roast</div></div></div><div class="sticky-bar-actions"><span class="sticky-bar-price" id="stickyBarPrice">$10.50</span><button class="btn btn-primary" id="stickyAddToCart">Buy Now</button></div></div>
+<footer class="site-footer"><div class="container"><div class="footer-top"><div><div class="footer-brand">Journey Roasters</div><p class="footer-tagline">Coffee for the road ahead.</p><a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Journey Roasters on Instagram" style="margin-top:22px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1"/></svg></a></div><div class="footer-cols"><div class="footer-col"><h4>Shop</h4><a href="shop.html">All Coffee</a><a href="product.html">Journey Roast</a><a href="first-light.html">First Light</a></div><div class="footer-col"><h4>Learn</h4><a href="index.html#story">Our Story</a><a href="index.html#brewing">Brewing</a><a href="index.html#reviews">Reviews</a></div><div class="footer-col"><h4>Contact</h4><a href="mailto:clowe2605@gmail.com">clowe2605@gmail.com</a></div></div></div><div class="footer-bottom"><span id="footerYear">© 2026 Journey Roasters. All rights reserved.</span><span>Roasted in small batches, always.</span></div></div></footer>
 <script>
-  // Mobile nav
-  const navToggle = document.getElementById('navToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  navToggle.addEventListener('click', () => {
-    const open = mobileNav.classList.toggle('is-open');
-    navToggle.classList.toggle('is-open', open);
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mobileNav.classList.remove('is-open');
-    navToggle.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded','false');
-  }));
-
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
-    });
-  }, { threshold:0.15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // Gallery thumbs — clicking a thumb swaps the main image
-  const galleryMainImg = document.getElementById('galleryMainImg');
-  document.querySelectorAll('.gallery-thumb').forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('is-active'));
-      thumb.classList.add('is-active');
-      const src = thumb.getAttribute('data-view');
-      if (src && galleryMainImg) galleryMainImg.src = src;
-    });
-  });
-
-  // ------------------------------------------------------------------
-  // Size / quantity / price state
-  // ------------------------------------------------------------------
-  let selectedSize = '8oz';
-  let selectedPrice = 12;
-  let selectedGrind = 'whole';
-  let quantity = 1;
-
-  const sizeOptions = document.querySelectorAll('#sizeOptions .size-option');
-  const grindOptions = document.querySelectorAll('#grindOptions .size-option');
-  const qtyValueEl = document.getElementById('qtyValue');
-  const totalPriceEl = document.getElementById('totalPrice');
-  const stickyBarMeta = document.getElementById('stickyBarMeta');
-  const stickyBarPrice = document.getElementById('stickyBarPrice');
-  const formatValueEl = document.getElementById('formatValue');
-
-  function formatPrice(n){
-    return n % 1 === 0 ? `$${n}` : `$${n.toFixed(2)}`;
-  }
-
-  function updateTotals(){
-    const total = selectedPrice * quantity;
-    totalPriceEl.textContent = formatPrice(total);
-    stickyBarPrice.textContent = formatPrice(total);
-    const sizeLabel = selectedSize === '8oz' ? '8 oz' : '1 lb';
-    const grindLabel = selectedGrind === 'ground' ? 'Ground' : 'Whole Bean';
-    stickyBarMeta.textContent = `${sizeLabel} · ${grindLabel} · Medium Roast${quantity > 1 ? ' · Qty ' + quantity : ''}`;
-    if (formatValueEl) formatValueEl.textContent = grindLabel;
-  }
-
-  sizeOptions.forEach(opt => {
-    opt.addEventListener('click', () => {
-      sizeOptions.forEach(o => o.classList.remove('is-active'));
-      opt.classList.add('is-active');
-      selectedSize = opt.getAttribute('data-size');
-      selectedPrice = Number(opt.getAttribute('data-price'));
-      updateTotals();
-    });
-  });
-
-  grindOptions.forEach(opt => {
-    opt.addEventListener('click', () => {
-      grindOptions.forEach(o => o.classList.remove('is-active'));
-      opt.classList.add('is-active');
-      selectedGrind = opt.getAttribute('data-grind');
-      updateTotals();
-    });
-  });
-
-  document.getElementById('qtyMinus').addEventListener('click', () => {
-    quantity = Math.max(1, quantity - 1);
-    qtyValueEl.textContent = quantity;
-    updateTotals();
-  });
-  document.getElementById('qtyPlus').addEventListener('click', () => {
-    quantity = Math.min(20, quantity + 1);
-    qtyValueEl.textContent = quantity;
-    updateTotals();
-  });
-
-  // ==================================================================
-  // STRIPE PAYMENT LINKS — First Light needs its OWN Payment Links,
-  // separate from Journey Roast's. All four First Light links below
-  // are live.
-  // ==================================================================
-  const STRIPE_LINKS = {
-    '8oz': {
-      whole: 'https://buy.stripe.com/14A6oI7FH9xSeLEfx0fMA06',
-      ground: 'https://buy.stripe.com/dRm7sM4tv5hCdHA4SmfMA0a'
-    },
-    '1lb': {
-      whole: 'https://buy.stripe.com/8x28wQ1hj11m9rk70ufMA07',
-      ground: 'https://buy.stripe.com/fZu7sM9NP7pKdHA1GafMA0b'
-    }
-  };
-  function goToCheckout(){
-    const sizeLinks = STRIPE_LINKS[selectedSize] || STRIPE_LINKS['8oz'];
-    window.location.href = sizeLinks[selectedGrind] || sizeLinks.whole;
-  }
-  document.getElementById('addToCartBtn').addEventListener('click', goToCheckout);
-  document.getElementById('stickyAddToCart').addEventListener('click', goToCheckout);
-
-  // ------------------------------------------------------------------
-  // Sticky purchase bar — shows once the main Buy Now button
-  // scrolls out of view.
-  // ------------------------------------------------------------------
-  const stickyBar = document.getElementById('stickyBar');
-  const mainCta = document.getElementById('mainPurchaseCta');
-  const stickyObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      stickyBar.classList.toggle('is-shown', !entry.isIntersecting && entry.boundingClientRect.top < 0);
-    });
-  }, { threshold:0 });
-  stickyObserver.observe(mainCta);
-
-  // Footer year
-  document.getElementById('footerYear').textContent = `© ${new Date().getFullYear()} Journey Roasters. All rights reserved.`;
+const navToggle=document.getElementById('navToggle');const mobileNav=document.getElementById('mobileNav');navToggle.addEventListener('click',()=>{const open=mobileNav.classList.toggle('is-open');navToggle.classList.toggle('is-open',open);navToggle.setAttribute('aria-expanded',String(open))});mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileNav.classList.remove('is-open');navToggle.classList.remove('is-open');navToggle.setAttribute('aria-expanded','false')}));
+const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target)}})},{threshold:.15});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const galleryMainImg=document.getElementById('galleryMainImg');document.querySelectorAll('.gallery-thumb').forEach(thumb=>{thumb.addEventListener('click',()=>{document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('is-active'));thumb.classList.add('is-active');const src=thumb.getAttribute('data-view');if(src&&galleryMainImg)galleryMainImg.src=src})});
+let selectedSize='8oz';let selectedPrice=10.5;let selectedGrind='whole';let quantity=1;
+const sizeOptions=document.querySelectorAll('#sizeOptions .size-option');const grindOptions=document.querySelectorAll('#grindOptions .size-option');const qtyValueEl=document.getElementById('qtyValue');const totalPriceEl=document.getElementById('totalPrice');const stickyBarMeta=document.getElementById('stickyBarMeta');const stickyBarPrice=document.getElementById('stickyBarPrice');const formatValueEl=document.getElementById('formatValue');
+function formatPrice(n){return n%1===0?`$${n}`:`$${n.toFixed(2)}`}
+function updateTotals(){const total=selectedPrice*quantity;totalPriceEl.textContent=formatPrice(total);stickyBarPrice.textContent=formatPrice(total);const sizeLabel=selectedSize==='8oz'?'8 oz':'1 lb';const grindLabel=selectedGrind==='ground'?'Ground':'Whole Bean';stickyBarMeta.textContent=`${sizeLabel} · ${grindLabel} · Medium Roast${quantity>1?' · Qty '+quantity:''}`;if(formatValueEl)formatValueEl.textContent=grindLabel}
+sizeOptions.forEach(opt=>{opt.addEventListener('click',()=>{sizeOptions.forEach(o=>o.classList.remove('is-active'));opt.classList.add('is-active');selectedSize=opt.getAttribute('data-size');selectedPrice=Number(opt.getAttribute('data-price'));updateTotals()})});
+grindOptions.forEach(opt=>{opt.addEventListener('click',()=>{grindOptions.forEach(o=>o.classList.remove('is-active'));opt.classList.add('is-active');selectedGrind=opt.getAttribute('data-grind');updateTotals()})});
+document.getElementById('qtyMinus').addEventListener('click',()=>{quantity=Math.max(1,quantity-1);qtyValueEl.textContent=quantity;updateTotals()});document.getElementById('qtyPlus').addEventListener('click',()=>{quantity=Math.min(20,quantity+1);qtyValueEl.textContent=quantity;updateTotals()});
+const STRIPE_LINKS={'8oz':{whole:'https://buy.stripe.com/14A6oI7FH9xSeLEfx0fMA06',ground:'https://buy.stripe.com/dRm7sM4tv5hCdHA4SmfMA0a'},'1lb':{whole:'https://buy.stripe.com/8x28wQ1hj11m9rk70ufMA07',ground:'https://buy.stripe.com/fZu7sM9NP7pKdHA1GafMA0b'}};function goToCheckout(){const sizeLinks=STRIPE_LINKS[selectedSize]||STRIPE_LINKS['8oz'];window.location.href=sizeLinks[selectedGrind]||sizeLinks.whole}document.getElementById('addToCartBtn').addEventListener('click',goToCheckout);document.getElementById('stickyAddToCart').addEventListener('click',goToCheckout);
+const stickyBar=document.getElementById('stickyBar');const mainCta=document.getElementById('mainPurchaseCta');const stickyObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{stickyBar.classList.toggle('is-shown',!entry.isIntersecting&&entry.boundingClientRect.top<0)})},{threshold:0});stickyObserver.observe(mainCta);document.getElementById('footerYear').textContent=`© ${new Date().getFullYear()} Journey Roasters. All rights reserved.`;
 </script>
 </body>
 </html>
