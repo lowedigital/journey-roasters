@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "journey-roasters.vercel.app"
+        }
+      ],
+      "destination": "https://www.journeyroasting.com/$1",
+      "permanent": true
+    }
+  ]
+}
