@@ -403,6 +403,11 @@
   .view-link{ display:inline-flex; align-items:center; gap:8px; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--black); border-bottom:1px solid var(--gold); padding-bottom:3px; transition:opacity .3s var(--ease); }
   .view-link:hover{ opacity:0.6; }
 
+  .coffee-more{ text-align:center; margin-top:52px; }
+  .coffee-more .eyebrow{ display:block; }
+  .coffee-more-desc{ margin-top:8px; color:var(--text-muted); font-size:13.5px; }
+  .coffee-more .view-link{ margin-top:16px; }
+
   /* Why columns */
   .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
   @media(max-width:800px){ .why-grid{ grid-template-columns:1fr; gap:32px; } }
@@ -634,6 +639,11 @@
         </div>
       </a>
     </div>
+    <div class="coffee-more reveal">
+      <span class="eyebrow">Brew Your Journey</span>
+      <p class="coffee-more-desc">Simple guides for making great coffee at home.</p>
+      <a href="#brewing" class="view-link">Explore Brewing →</a>
+    </div>
   </div>
 </section>
 
@@ -670,6 +680,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Brewing</span>
       <h2>Simple ways to brew it well.</h2>
+      <p>Whichever bag you picked up, here's how to get the most out of it.</p>
     </div>
     <div class="brew-grid reveal">
       <div class="brew-card">
