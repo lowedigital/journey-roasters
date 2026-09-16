@@ -113,6 +113,7 @@
   .btn-outline-light:hover{ background:var(--black); color:var(--white); }
   .btn-block{ width:100%; }
   .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  .btn.is-disabled{ opacity:0.45; }
 
   .reveal{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
   .reveal.is-visible{ opacity:1; transform:translateY(0); }
@@ -184,6 +185,8 @@
   .size-option.is-active{ border-color:var(--gold); background:var(--cream); }
   .size-option .size-label{ font-size:14px; font-weight:400; }
   .size-option .size-price{ font-family:'Cormorant Garamond',serif; font-size:20px; margin-top:4px; }
+  .grind-hint{ margin-top:8px; font-size:12px; color:#D98C7B; display:none; }
+  .grind-hint.is-shown{ display:block; }
 
   .qty-row{ display:flex; align-items:center; gap:18px; margin-top:20px; flex-wrap:wrap; }
   .qty-stepper{ display:flex; align-items:center; border:1px solid var(--line); }
@@ -302,7 +305,7 @@
         <div class="detail-row"><dt>Origin</dt><dd>Brazil</dd></div>
         <div class="detail-row"><dt>Roast Level</dt><dd>Dark</dd></div>
         <div class="detail-row"><dt>Processing Method</dt><dd>Natural Process</dd></div>
-        <div class="detail-row"><dt>Format</dt><dd id="formatValue">Whole Bean</dd></div>
+        <div class="detail-row"><dt>Format</dt><dd id="formatValue">—</dd></div>
       </dl>
 
       <div class="freshness-note">
@@ -327,13 +330,14 @@
       <div class="size-select" style="margin-top:18px;">
         <span class="field-label">Grind</span>
         <div class="size-options" id="grindOptions">
-          <button class="size-option is-active" data-grind="whole">
+          <button class="size-option" data-grind="whole">
             <div class="size-label">Whole Bean</div>
           </button>
           <button class="size-option" data-grind="ground">
             <div class="size-label">Ground</div>
           </button>
         </div>
+        <p class="grind-hint" id="grindHint">Please select Whole Bean or Ground to continue.</p>
       </div>
 
       <div class="qty-row">
@@ -352,7 +356,7 @@
       </div>
 
       <div class="purchase-cta" id="mainPurchaseCta">
-        <button class="btn btn-primary btn-block" id="addToCartBtn">Buy Now</button>
+        <button class="btn btn-primary btn-block is-disabled" id="addToCartBtn">Buy Now</button>
         <div class="purchase-secure">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10 V7 a4 4 0 0 1 8 0 v3"/></svg>
           Secure checkout via Stripe · Free shipping over $40
@@ -397,7 +401,7 @@
   </div>
   <div class="sticky-bar-actions">
     <span class="sticky-bar-price" id="stickyBarPrice">$10.50</span>
-    <button class="btn btn-primary" id="stickyAddToCart">Buy Now</button>
+    <button class="btn btn-primary is-disabled" id="stickyAddToCart">Buy Now</button>
   </div>
 </div>
 
@@ -477,7 +481,7 @@
   // ------------------------------------------------------------------
   let selectedSize = '8oz';
   let selectedPrice = 10.5;
-  let selectedGrind = 'whole';
+  let selectedGrind = null;
   let quantity = 1;
 
   const sizeOptions = document.querySelectorAll('#sizeOptions .size-option');
@@ -487,6 +491,9 @@
   const stickyBarMeta = document.getElementById('stickyBarMeta');
   const stickyBarPrice = document.getElementById('stickyBarPrice');
   const formatValueEl = document.getElementById('formatValue');
+  const grindHint = document.getElementById('grindHint');
+  const addToCartBtn = document.getElementById('addToCartBtn');
+  const stickyAddToCart = document.getElementById('stickyAddToCart');
 
   function formatPrice(n){
     return n % 1 === 0 ? `$${n}` : `$${n.toFixed(2)}`;
@@ -497,9 +504,9 @@
     totalPriceEl.textContent = formatPrice(total);
     stickyBarPrice.textContent = formatPrice(total);
     const sizeLabel = selectedSize === '8oz' ? '8 oz' : '1 lb';
-    const grindLabel = selectedGrind === 'ground' ? 'Ground' : 'Whole Bean';
+    const grindLabel = selectedGrind === 'ground' ? 'Ground' : selectedGrind === 'whole' ? 'Whole Bean' : 'Select Grind';
     stickyBarMeta.textContent = `${sizeLabel} · ${grindLabel} · Dark Roast${quantity > 1 ? ' · Qty ' + quantity : ''}`;
-    if (formatValueEl) formatValueEl.textContent = grindLabel;
+    if (formatValueEl) formatValueEl.textContent = selectedGrind ? grindLabel : '—';
   }
 
   sizeOptions.forEach(opt => {
@@ -517,6 +524,9 @@
       grindOptions.forEach(o => o.classList.remove('is-active'));
       opt.classList.add('is-active');
       selectedGrind = opt.getAttribute('data-grind');
+      grindHint.classList.remove('is-shown');
+      addToCartBtn.classList.remove('is-disabled');
+      stickyAddToCart.classList.remove('is-disabled');
       updateTotals();
     });
   });
@@ -551,6 +561,11 @@
     }
   };
   function goToCheckout(){
+    if (!selectedGrind) {
+      grindHint.classList.add('is-shown');
+      document.getElementById('grindOptions').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
     const sizeLinks = STRIPE_LINKS[selectedSize] || STRIPE_LINKS['8oz'];
     window.location.href = sizeLinks[selectedGrind] || sizeLinks.whole;
   }
