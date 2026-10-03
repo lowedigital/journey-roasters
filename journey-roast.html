@@ -189,10 +189,6 @@
   .grind-hint.is-shown{ display:block; }
 
   .qty-row{ display:flex; align-items:center; gap:18px; margin-top:20px; flex-wrap:wrap; }
-  .qty-stepper{ display:flex; align-items:center; border:1px solid var(--line); }
-  .qty-stepper button{ width:36px; height:38px; background:none; border:0; font-size:15px; color:var(--text); transition:background .3s var(--ease); }
-  .qty-stepper button:hover{ background:var(--cream); }
-  .qty-stepper span{ width:40px; text-align:center; font-size:14px; }
   .total-price{ font-family:'Cormorant Garamond',serif; font-size:24px; }
 
   .purchase-cta{ margin-top:20px; display:flex; flex-direction:column; gap:10px; }
@@ -342,14 +338,6 @@
 
       <div class="qty-row">
         <div>
-          <span class="field-label">Quantity</span>
-          <div class="qty-stepper">
-            <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
-            <span id="qtyValue">1</span>
-            <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
-          </div>
-        </div>
-        <div>
           <span class="field-label">Total</span>
           <div class="total-price" id="totalPrice">$10.50</div>
         </div>
@@ -477,16 +465,14 @@
   });
 
   // ------------------------------------------------------------------
-  // Size / quantity / price state
+  // Size / grind / price state
   // ------------------------------------------------------------------
   let selectedSize = '8oz';
   let selectedPrice = 10.5;
   let selectedGrind = null;
-  let quantity = 1;
 
   const sizeOptions = document.querySelectorAll('#sizeOptions .size-option');
   const grindOptions = document.querySelectorAll('#grindOptions .size-option');
-  const qtyValueEl = document.getElementById('qtyValue');
   const totalPriceEl = document.getElementById('totalPrice');
   const stickyBarMeta = document.getElementById('stickyBarMeta');
   const stickyBarPrice = document.getElementById('stickyBarPrice');
@@ -500,12 +486,11 @@
   }
 
   function updateTotals(){
-    const total = selectedPrice * quantity;
-    totalPriceEl.textContent = formatPrice(total);
-    stickyBarPrice.textContent = formatPrice(total);
+    totalPriceEl.textContent = formatPrice(selectedPrice);
+    stickyBarPrice.textContent = formatPrice(selectedPrice);
     const sizeLabel = selectedSize === '8oz' ? '8 oz' : '1 lb';
     const grindLabel = selectedGrind === 'ground' ? 'Ground' : selectedGrind === 'whole' ? 'Whole Bean' : 'Select Grind';
-    stickyBarMeta.textContent = `${sizeLabel} · ${grindLabel} · Dark Roast${quantity > 1 ? ' · Qty ' + quantity : ''}`;
+    stickyBarMeta.textContent = `${sizeLabel} · ${grindLabel} · Dark Roast`;
     if (formatValueEl) formatValueEl.textContent = selectedGrind ? grindLabel : '—';
   }
 
@@ -529,17 +514,6 @@
       stickyAddToCart.classList.remove('is-disabled');
       updateTotals();
     });
-  });
-
-  document.getElementById('qtyMinus').addEventListener('click', () => {
-    quantity = Math.max(1, quantity - 1);
-    qtyValueEl.textContent = quantity;
-    updateTotals();
-  });
-  document.getElementById('qtyPlus').addEventListener('click', () => {
-    quantity = Math.min(20, quantity + 1);
-    qtyValueEl.textContent = quantity;
-    updateTotals();
   });
 
   // ==================================================================
