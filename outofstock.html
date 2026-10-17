@@ -1,2 +1,243 @@
-<h1>This product is out of stock</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Currently Sold Out | Journey Roasters</title>
+<meta name="description" content="This coffee is sold out while we roast the next small batch. Take a look at our other coffee or check back soon.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#ffffff">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --black:#0F0F0F; --white:#FFFFFF; --gold:#C7A25A; --gold-soft:#DCC493;
+    --cream:#F6F3EE; --text:#222222; --text-muted:#6B6B63;
+    --line:rgba(15,15,15,0.08); --line-on-dark:rgba(255,255,255,0.14);
+    --container:1280px; --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  @media (prefers-reduced-motion: reduce){ *,*::before,*::after{ transition-duration:0.001ms !important; animation-duration:0.001ms !important; } }
+  body{ margin:0; background:var(--white); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:300; line-height:1.6; -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; min-height:100vh; }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,h4{ font-family:'Cormorant Garamond',serif; font-weight:500; margin:0; letter-spacing:0.01em; }
+  p{ margin:0; }
+  button{ font-family:inherit; cursor:pointer; }
+  .container{ max-width:var(--container); margin:0 auto; padding:0 32px; width:100%; }
+  @media(max-width:640px){ .container{ padding:0 20px; } }
+  .eyebrow{ font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:500; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 28px; font-size:12.5px; letter-spacing:0.13em; text-transform:uppercase; font-weight:500; border-radius:2px; border:1px solid transparent; transition:all .35s var(--ease); white-space:nowrap; }
+  .btn-primary{ background:var(--gold); color:var(--black); }
+  .btn-primary:hover{ background:var(--gold-soft); transform:translateY(-1px); }
+  .btn-outline-light{ border-color:var(--black); color:var(--black); }
+  .btn-outline-light:hover{ background:var(--black); color:var(--white); }
+  .btn:focus-visible, a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  /* Nav (shared with the rest of the site) */
+  .site-nav{ position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:13px 40px; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); box-shadow:0 1px 0 var(--line); }
+  @media(max-width:640px){ .site-nav{ padding:14px 20px; } }
+  .brand{ font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:0.14em; text-transform:uppercase; color:var(--black); }
+  .nav-links{ display:flex; gap:44px; align-items:center; }
+  .nav-links a{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); font-weight:400; position:relative; padding-bottom:4px; }
+  .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .35s var(--ease); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-right{ display:flex; align-items:center; gap:22px; }
+  .nav-shop-btn{ padding:11px 24px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; background:var(--gold); border:1px solid var(--gold); color:var(--black); border-radius:2px; transition:all .35s var(--ease); }
+  .nav-shop-btn:hover{ background:var(--gold-soft); border-color:var(--gold-soft); transform:translateY(-1px); }
+  .nav-toggle{ display:none; background:none; border:0; width:26px; height:20px; position:relative; }
+  .nav-toggle span{ position:absolute; left:0; right:0; height:1px; background:var(--black); transition:all .3s var(--ease); }
+  .nav-toggle span:nth-child(1){ top:0; } .nav-toggle span:nth-child(2){ top:9px; } .nav-toggle span:nth-child(3){ top:18px; }
+  .nav-toggle.is-open span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-open span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+  .mobile-nav{ position:fixed; inset:0; background:var(--black); z-index:99; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; opacity:0; visibility:hidden; transition:opacity .4s var(--ease); }
+  .mobile-nav.is-open{ opacity:1; visibility:visible; }
+  .mobile-nav a{ font-family:'Cormorant Garamond',serif; font-size:30px; color:var(--cream); }
+  @media(max-width:900px){ .nav-links{ display:none; } .nav-shop-btn{ display:none; } .nav-toggle{ display:block; } }
+
+  /* Page */
+  main{ flex:1; padding:150px 0 90px; }
+  .oos{ display:grid; grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr); gap:72px; align-items:center; max-width:1040px; margin:0 auto; }
+  .oos-media{ position:relative; background:var(--cream); border-radius:2px; aspect-ratio:4/5; overflow:hidden; }
+  .oos-media img{ width:100%; height:100%; object-fit:cover; opacity:.6; filter:grayscale(.35); }
+  .oos-media.no-image{ display:none; }
+  .oos.no-media{ grid-template-columns:1fr; max-width:620px; }
+  .oos-badge{ position:absolute; top:18px; left:18px; background:var(--black); color:var(--white); font:500 11px/1 'Inter',sans-serif; letter-spacing:.14em; text-transform:uppercase; padding:9px 13px; border-radius:2px; }
+  .oos-copy .eyebrow{ display:block; margin-bottom:16px; }
+  .oos-copy h1{ font-size:clamp(40px,5.2vw,64px); line-height:1.05; }
+  .oos-lede{ margin-top:22px; font-size:17px; color:var(--text); max-width:46ch; }
+  .oos-sub{ margin-top:14px; font-size:15px; color:var(--text-muted); max-width:46ch; }
+  .oos-actions{ margin-top:34px; display:flex; flex-wrap:wrap; gap:14px; }
+  .oos-notify{ margin-top:30px; padding-top:22px; border-top:1px solid var(--line); font-size:14px; color:var(--text-muted); max-width:46ch; }
+  .oos-notify a{ color:var(--text); border-bottom:1px solid var(--gold); padding-bottom:1px; }
+  .oos-notify a:hover{ color:var(--black); border-bottom-color:var(--black); }
+  .oos-back{ display:none; margin-bottom:22px; padding:14px 18px; background:var(--cream); border-left:2px solid var(--gold); font-size:14.5px; color:var(--text); max-width:46ch; }
+  .oos-back.is-shown{ display:block; }
+  @media(max-width:820px){
+    main{ padding:112px 0 64px; }
+    .oos{ grid-template-columns:1fr; gap:34px; }
+    .oos-media{ aspect-ratio:16/11; }
+  }
+
+  /* Footer (shared) */
+  .site-footer{ background:var(--black); color:rgba(255,255,255,0.6); padding:52px 0 26px; }
+  .footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:28px; padding-bottom:32px; border-bottom:1px solid var(--line-on-dark); }
+  .footer-brand{ font-family:'Cormorant Garamond',serif; font-size:22px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); }
+  .footer-tagline{ margin-top:12px; font-size:14px; color:rgba(255,255,255,0.4); max-width:28ch; }
+  .footer-cols{ display:flex; gap:46px; flex-wrap:wrap; }
+  .footer-col h4{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); font-weight:500; margin-bottom:12px; }
+  .footer-col a{ display:block; font-size:13.5px; color:rgba(255,255,255,0.55); margin-top:8px; transition:color .3s var(--ease); }
+  .footer-col a:hover{ color:var(--gold-soft); }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:18px; flex-wrap:wrap; gap:14px; font-size:12px; color:rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/" class="brand">Journey Roasters</a>
+  <div class="nav-links">
+    <a href="shop.html">Shop</a>
+    <a href="/#story">Our Story</a>
+    <a href="/#reviews">Reviews</a>
+  </div>
+  <div class="nav-right">
+    <a href="shop.html" class="nav-shop-btn">Shop</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="shop.html">Shop</a>
+  <a href="/#story">Our Story</a>
+  <a href="/#reviews">Reviews</a>
+</div>
+
+<main>
+  <div class="container">
+    <div class="oos" id="oosGrid">
+      <div class="oos-media" id="oosMedia">
+        <img id="oosImg" src="images/products/journey-roast/main.jpg" alt="" onerror="document.getElementById('oosMedia').classList.add('no-image');document.getElementById('oosGrid').classList.add('no-media')">
+        <span class="oos-badge">Sold Out</span>
+      </div>
+
+      <div class="oos-copy">
+        <span class="eyebrow" id="oosEyebrow">Sold Out For Now</span>
+        <h1 id="oosTitle">This coffee is sold out</h1>
+
+        <div class="oos-back" id="oosBack" role="status">
+          Good news: <span id="oosBackName">this coffee</span> is back in stock. <a href="shop.html" id="oosBackLink" style="border-bottom:1px solid var(--gold);">Shop it now</a>.
+        </div>
+
+        <p class="oos-lede" id="oosLede">We roast in small batches, and this one has sold through. We're working on the next roast.</p>
+        <p class="oos-sub">Everything we sell is roasted fresh to order, so we'd rather make you wait a little than ship something that's been sitting on a shelf.</p>
+
+        <div class="oos-actions">
+          <a href="shop.html" class="btn btn-primary" id="oosOtherBtn">Shop our other coffee</a>
+          <a href="/" class="btn btn-outline-light">Back to home</a>
+        </div>
+
+        <p class="oos-notify">
+          Want to know when it's back? <a href="mailto:clowe2605@gmail.com?subject=Notify%20me%20when%20it%27s%20back%20in%20stock" id="oosNotify">Send us a quick email</a> and we'll let you know.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Journey Roasters</div>
+        <p class="footer-tagline">Coffee for the road ahead.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="shop.html">All Coffee</a>
+          <a href="journey-roast.html">Journey Roast</a>
+          <a href="first-light.html">First Light</a>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <a href="/#story">Our Story</a>
+          <a href="/#brewing">Brewing</a>
+          <a href="/#reviews">Reviews</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:clowe2605@gmail.com">clowe2605@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="footerYear">© 2026 Journey Roasters. All rights reserved.</span>
+      <span>Roasted in small batches, always.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mobileNav');
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      toggle.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  })();
+  document.getElementById('footerYear').textContent = '© ' + new Date().getFullYear() + ' Journey Roasters. All rights reserved.';
+
+  // Personalise for the coffee that sent the visitor here (?coffee=journey-roast | first-light)
+  (function () {
+    var COFFEES = {
+      'journey-roast': { name: 'Journey Roast', page: 'journey-roast.html', blurb: 'our Brazilian dark roast' },
+      'first-light':   { name: 'First Light',   page: 'first-light.html',   blurb: 'our Colombian medium roast' }
+    };
+    var other = { 'journey-roast': 'first-light', 'first-light': 'journey-roast' };
+
+    var params = new URLSearchParams(location.search);
+    var key = params.get('coffee');
+    if (!COFFEES[key]) return; // unknown or missing: keep the generic page
+    var c = COFFEES[key];
+    var o = COFFEES[other[key]];
+
+    document.title = c.name + ' is Sold Out | Journey Roasters';
+    document.getElementById('oosTitle').textContent = c.name + ' is sold out';
+    document.getElementById('oosLede').textContent =
+      'We roast in small batches, and ' + c.name + ' has sold through for now. The next roast is on its way.';
+    var img = document.getElementById('oosImg');
+    img.src = 'images/products/' + key + '/main.jpg';
+    img.alt = c.name + ' coffee bag';
+    var otherBtn = document.getElementById('oosOtherBtn');
+    otherBtn.textContent = 'Try ' + o.name + ' instead';
+    otherBtn.href = o.page;
+    document.getElementById('oosNotify').href =
+      'mailto:clowe2605@gmail.com?subject=' + encodeURIComponent('Notify me when ' + c.name + ' is back in stock');
+
+    // If it came back in stock, say so (and if the other coffee is out too, send them to the shop instead).
+    fetch('/api/stock').then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      if (!d) return;
+      if (d[key] && d[key].inStock === true) {
+        document.getElementById('oosBackName').textContent = c.name;
+        document.getElementById('oosBackLink').href = c.page;
+        document.getElementById('oosBack').classList.add('is-shown');
+      }
+      if (d[other[key]] && d[other[key]].inStock === false) {
+        otherBtn.textContent = 'Back to the shop';
+        otherBtn.href = 'shop.html';
+      }
+    }).catch(function () {});
+  })();
+</script>
+</body>
+</html>
