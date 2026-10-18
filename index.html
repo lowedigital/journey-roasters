@@ -489,6 +489,7 @@
   .social-icon svg{ width:16px; height:16px; }
   </style>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -559,6 +560,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Product",
+          "@id": "https://www.journeyroasting.com/#journey-roast",
           "name": "Journey Roast",
           "description": "Brazilian dark roast specialty coffee, roasted in small batches by Journey Roasters.",
           "category": "Dark Roast Coffee Beans",
@@ -566,6 +568,12 @@
             "@type": "Brand",
             "@id": "https://www.journeyroasting.com/#brand",
             "name": "Journey Roasters"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "10.50",
+            "highPrice": "18.00"
           }
         }
       },
@@ -573,6 +581,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Product",
+          "@id": "https://www.journeyroasting.com/#first-light",
           "name": "First Light",
           "description": "Colombian medium roast specialty coffee, roasted in small batches by Journey Roasters.",
           "category": "Medium Roast Coffee Beans",
@@ -580,40 +589,20 @@
             "@type": "Brand",
             "@id": "https://www.journeyroasting.com/#brand",
             "name": "Journey Roasters"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "10.50",
+            "highPrice": "18.00"
           }
         }
       }
     ]
-  },
-
-  "makesOffer": [
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Product",
-        "name": "Journey Roast",
-        "brand": {
-          "@type": "Brand",
-          "@id": "https://www.journeyroasting.com/#brand",
-          "name": "Journey Roasters"
-        }
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Product",
-        "name": "First Light",
-        "brand": {
-          "@type": "Brand",
-          "@id": "https://www.journeyroasting.com/#brand",
-          "name": "Journey Roasters"
-        }
-      }
-    }
-  ]
+  }
 }
 </script>
+
 
   
 <script src="stock.js"></script>
