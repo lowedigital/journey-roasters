@@ -488,6 +488,7 @@
   .social-icon:hover{ border-color:var(--gold); color:var(--gold); }
   .social-icon svg{ width:16px; height:16px; }
   </style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -498,7 +499,7 @@
   "url": "https://www.journeyroasting.com/",
   "image": "https://www.journeyroasting.com/images/seo.png",
 
-  "description": "Journey Roasters is a small-batch specialty coffee roaster based in Danville, Indiana, offering carefully roasted coffee to local customers and coffee lovers throughout Central Indiana.",
+  "description": "Journey Roasters is a small-batch specialty coffee roaster based in Danville, Indiana, offering freshly roasted specialty coffee beans, carefully developed roast profiles, and locally available coffee for customers throughout Central Indiana.",
 
   "priceRange": "$10.50-$18.00",
   "currenciesAccepted": "USD",
@@ -521,21 +522,69 @@
     "addressCountry": "US"
   },
 
-  "areaServed": {
-    "@type": "City",
-    "name": "Danville",
-    "containedInPlace": {
-      "@type": "State",
-      "name": "Indiana"
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Danville",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Indiana"
+      }
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Hendricks County, Indiana"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Central Indiana"
     }
-  },
+  ],
 
   "knowsAbout": [
     "Specialty coffee",
     "Coffee roasting",
     "Small-batch coffee roasting",
+    "Freshly roasted coffee beans",
+    "Single-origin coffee",
+    "Coffee roast profiles",
     "Coffee brewing"
   ],
+
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Small-Batch Specialty Coffee",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Journey Roast",
+          "description": "Brazilian dark roast specialty coffee, roasted in small batches by Journey Roasters.",
+          "category": "Dark Roast Coffee Beans",
+          "brand": {
+            "@type": "Brand",
+            "@id": "https://www.journeyroasting.com/#brand",
+            "name": "Journey Roasters"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "First Light",
+          "description": "Colombian medium roast specialty coffee, roasted in small batches by Journey Roasters.",
+          "category": "Medium Roast Coffee Beans",
+          "brand": {
+            "@type": "Brand",
+            "@id": "https://www.journeyroasting.com/#brand",
+            "name": "Journey Roasters"
+          }
+        }
+      }
+    ]
+  },
 
   "makesOffer": [
     {
@@ -545,6 +594,7 @@
         "name": "Journey Roast",
         "brand": {
           "@type": "Brand",
+          "@id": "https://www.journeyroasting.com/#brand",
           "name": "Journey Roasters"
         }
       }
@@ -556,6 +606,7 @@
         "name": "First Light",
         "brand": {
           "@type": "Brand",
+          "@id": "https://www.journeyroasting.com/#brand",
           "name": "Journey Roasters"
         }
       }
@@ -563,6 +614,7 @@
   ]
 }
 </script>
+
   
 <script src="stock.js"></script>
 </head>
